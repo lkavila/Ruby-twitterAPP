@@ -1,0 +1,156 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+<button type="button" class="btn btn-primary" style="width:200px;" data-toggle="modal" data-target="#RegisterModal">Sign up</button>
+
+<div class="modal fade" id="RegisterModal" tabindex="-1" role="dialog" aria-labelledby="RegisterModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="RegisterModalLabel">Create your account</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          
+            <div class="Myinput-field" style="width:90%;">
+              <label for="name" style="width:100%;">Name
+                  <input id="name" type="text" class="myInput" style="width:100%;color:black;">
+              </label>
+            </div>
+          <br>
+
+            <div class="Myinput-field" style="width:90%;">
+              <label for="email" style="width:100%;">Email
+                  <input id="email" type="text" class="myInput" style="width:100%;color:black;">
+              </label>
+            </div>
+
+            <br>
+
+          <p style="font-weight: bold; font-size: 11px">Birth Day </p>
+          <p style="font-size: 11px">This information will not be public. 
+          Confirm your own age even if this account is for a company or a pet or something else</p>
+
+          <div class=" container-fluid row" >
+                    <div class="Myinput-field" style="width: 42%">
+                        <label for="month" style="width: 100%; height:60%">Month
+                        <br>
+                            <select id="month" class=" Myselect">
+                              <option selected disabled="disabled" ></option>
+                              <option value="January">January</option>
+                              <option value="Febuary">Febuary</option>
+                              <option value="March">March</option>
+                              <option value="April">April</option>
+                              <option value="May">May</option>
+                              <option value="June">June</option>
+                              <option value="July">July</option>
+                              <option value="August">August</option>
+                              <option value="September">September</option>
+                              <option value="October">October</option>
+                              <option value="November">November</option>
+                              <option value="December">December</option>
+                            </select>
+                        </label>
+                    </div>
+
+                      <div class="Myinput-field" style="width: 20%">
+                        <label for="month" style="width: 100%; height:60%">Day
+                        <br>
+                            <select id="month" class=" Myselect">
+                              <option selected disabled="disabled" ></option>
+                              <option value="January">January</option>
+                              <option value="Febuary">Febuary</option>
+                              <option value="March">March</option>
+                              <option value="April">April</option>
+                              <option value="May">May</option>
+                              <option value="June">June</option>
+                              <option value="July">July</option>
+                              <option value="August">August</option>
+                              <option value="September">September</option>
+                              <option value="October">October</option>
+                              <option value="November">November</option>
+                              <option value="December">December</option>
+                            </select>
+                        </label>
+                    </div>
+
+                     <div class="Myinput-field" style="width: 30%">
+                        <label for="month" style="width: 100%; height:60%">Year
+                        <br>
+                            <select id="month" class=" Myselect">
+                              <option selected disabled="disabled" ></option>
+                              <option value="January">January</option>
+                              <option value="Febuary">Febuary</option>
+                              <option value="March">March</option>
+                              <option value="April">April</option>
+                              <option value="May">May</option>
+                              <option value="June">June</option>
+                              <option value="July">July</option>
+                              <option value="August">August</option>
+                              <option value="September">September</option>
+                              <option value="October">October</option>
+                              <option value="November">November</option>
+                              <option value="December">December</option>
+                            </select>
+                        </label>
+                    </div>
+            </div>
+
+          <br>
+
+          <div class="Myinput-field" style="width:90%;">
+              <label for="password" style="width:100%;">Password
+                  <input id="password" type="text" class="myInput" style="width:100%;color:black;">
+              </label>
+            </div>
+          <br>
+
+            <div class="Myinput-field" style="width:90%;">
+              <label for="password_confirmation" style="width:100%;">Confirm password
+                  <input id="password_confirmation" type="text" class="myInput" style="width:100%;color:black;">
+              </label>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" style="width:150px;" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Create</button>
+      </div>
+    </div>
+  </div>
+</div>
