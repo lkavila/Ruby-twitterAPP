@@ -184,7 +184,7 @@ ul {
 
 
 
-/*Inicio Inputs styles*/
+/*Inicio Inputs styles
 input{
     width: 170px;
     height: 30px;
@@ -195,10 +195,21 @@ input{
     background: none;
     outline:none;
     border-radius: 3px;
-    color: rgb(255, 255, 255);
     transition: all 200ms ease-out;
-}
+}*/
 
+  .Myselect{
+    background-color: transparent;
+    border: 0;
+    border-bottom:2px solid rgb(161, 161, 161);
+
+    width: 100%;
+    height: 100%;
+  }
+  select:focus{
+    border-bottom:2px solid rgb(9, 107, 204);
+    transition: all 200ms ease-out;
+  }
   .Myinput-field{
       margin-right: 5px;
       margin-left: 5px;
@@ -206,10 +217,12 @@ input{
       border-radius: 3px;
       width: 170px;
       height: 51px;
+      
   }
 
   .myInput{
     width: 170px;
+    color: rgb(255, 255, 255);
     border-bottom:2px solid rgb(167, 165, 165);
 
   }

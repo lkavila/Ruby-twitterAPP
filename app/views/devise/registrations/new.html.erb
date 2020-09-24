@@ -1,35 +1,4 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+<h2> Sign Up</h2>
 
 <%= render "devise/shared/links" %>
 
@@ -45,18 +14,21 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
-          
+        <form class="new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post">
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
             <div class="Myinput-field" style="width:90%;">
               <label for="name" style="width:100%;">Name
-                  <input id="name" type="text" class="myInput" style="width:100%;color:black;">
+                  <input autofocus="autofocus" autocomplete="name" type="text" value=""
+                   name="user[name]" id="user_name"  class="myInput" style="width:100%;color:black;">
               </label>
             </div>
+            
           <br>
 
             <div class="Myinput-field" style="width:90%;">
               <label for="email" style="width:100%;">Email
-                  <input id="email" type="text" class="myInput" style="width:100%;color:black;">
+                  <input autofocus="autofocus" autocomplete="email" type="email" value=""
+                   name="user[email]" id="user_email" class="myInput" style="width:100%;color:black;">
               </label>
             </div>
 
@@ -93,18 +65,11 @@
                         <br>
                             <select id="month" class=" Myselect">
                               <option selected disabled="disabled" ></option>
-                              <option value="January">January</option>
-                              <option value="Febuary">Febuary</option>
-                              <option value="March">March</option>
-                              <option value="April">April</option>
-                              <option value="May">May</option>
-                              <option value="June">June</option>
-                              <option value="July">July</option>
-                              <option value="August">August</option>
-                              <option value="September">September</option>
-                              <option value="October">October</option>
-                              <option value="November">November</option>
-                              <option value="December">December</option>
+                              
+                                <% for i in 1..31 %>
+                                  <option value="<%i%>"><%= i %></option>
+                                <% end %>
+                            
                             </select>
                         </label>
                     </div>
@@ -114,18 +79,11 @@
                         <br>
                             <select id="month" class=" Myselect">
                               <option selected disabled="disabled" ></option>
-                              <option value="January">January</option>
-                              <option value="Febuary">Febuary</option>
-                              <option value="March">March</option>
-                              <option value="April">April</option>
-                              <option value="May">May</option>
-                              <option value="June">June</option>
-                              <option value="July">July</option>
-                              <option value="August">August</option>
-                              <option value="September">September</option>
-                              <option value="October">October</option>
-                              <option value="November">November</option>
-                              <option value="December">December</option>
+
+                                <% for i in -2020..-1900 %>
+                                  <option value="<%i%>"><%= -1*i %></option>
+                                <% end %>
+
                             </select>
                         </label>
                     </div>
@@ -135,22 +93,28 @@
 
           <div class="Myinput-field" style="width:90%;">
               <label for="password" style="width:100%;">Password
-                  <input id="password" type="text" class="myInput" style="width:100%;color:black;">
+                  <input autocomplete="new-password" type="password" 
+                  name="user[password]" id="user_password" class="myInput" style="width:100%;color:black;">
               </label>
             </div>
           <br>
 
             <div class="Myinput-field" style="width:90%;">
               <label for="password_confirmation" style="width:100%;">Confirm password
-                  <input id="password_confirmation" type="text" class="myInput" style="width:100%;color:black;">
+                  <input autocomplete="new-password" type="password"name="user[password_confirmation]" 
+                  id="user_password_confirmation" class="myInput" style="width:100%;color:black;">
               </label>
             </div>
+                  <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" style="width:150px;" data-dismiss="modal">Close</button>
+        
+        <input type="submit" name="commit" value="Create" data-disable-with="Sign up">
+  
+      </div>
+            
         </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" style="width:150px;" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Create</button>
-      </div>
+
     </div>
   </div>
 </div>
