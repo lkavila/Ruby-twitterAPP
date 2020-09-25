@@ -1,5 +1,3 @@
-
-
 <div class=" container-index2">
 
     <div class="color-der col-index"
@@ -10,27 +8,30 @@
     </div>
         <h3 style="color:white; margin:20px">Log in on Twitter</h3>
 
+<form class="new_user" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post">
+             <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+
         <div class="login_input">
             <label for="first_name">Phone, email, or username
-                <input id="first_name" type="text" class="LogInput">
+                <input  autofocus="autofocus" autocomplete="email" type="email" value name="user[email]" id="first_name"  class="LogInput">
             </label>
         </div>
 
         <div class="login_input" >
             <label for="Password" >Password
-                <input id="Password" type="text" class="LogInput">
+                <input autocomplete="current-password" type="password" name="user[password]" id="Password"  class="LogInput">
             </label>
         </div>
 
     <div>
-        <a class="btn btn2" href="" style="margin-bottom: 30px; width: 400px;">Log in</a>
+        <input type="submit" name="commit" value="Log in" data-disable-with="Log in" class="btn btn2" style="margin-bottom: 30px; width: 400px;">
     </div>
 
     <div style="flex-direction: row;">
 
-        <a href="">Forgot password?</a>
+        <a href="/users/password/new">Forgot password?</a>
         <span style="color:rgb(111, 121, 117)">.</span>
-        <a href="">Sign up on Twitter</a>
+        <a href="/users/sign_up">Sign up on Twitter</a>
     </div>
 
 </div>

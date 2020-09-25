@@ -1,19 +1,12 @@
-
-
-
 <div class=" container-index ">
-
-
         <div class=" color-izq col-index imagen-izq responsive">
             <div class="mensajes" style="color:white;">
-
                 <div style="display: flex; margin-bottom:40px; margin-top: 20px;">
                     <div style="margin-right:15px;">
                         <i class="fas fa-search"></i>
                     </div>
                         Follow what interests you.
                 </div>
-
                 <div style="display: flex; margin-bottom:40px;">
 
                     <div style="margin-right:15px;">
@@ -21,24 +14,26 @@
                     </div>
                     Find out what people are talking about.
                 </div>
-
                 <div style="display: flex; margin-bottom:40px;">
                     <div style="margin-right:15px;">
                     <i class="far fa-comment"></i>
                     </div>
                         Join the conversation.
                     </div>
-            </div>
-
-            
+            </div>           
         </div>
 
         <div class=" color-der col-index">
+
             <div class="responsive-quitar">
+
+            <form class="new_user" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post">
+             <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+
                 <div class=" Mycontainer-fluid" style="margin-bottom:5%; ">
                     <div class="Myinput-field">
                         <label for="first_name">Phone, email, or username
-                            <input id="first_name" type="text" class="myInput">
+                            <input autofocus="autofocus" autocomplete="email" type="email" value name="user[email]" id="first_name"  class="myInput">
                         </label>
                     </div>
     
@@ -46,14 +41,12 @@
                     <div class="inputSpan" style="margin-top:15px;">
                         <div class="Myinput-field">
                             <label for="password">Password
-                                <input id="password" type="password" class="myInput">
+                                <input autocomplete="current-password" type="password" name="user[password]" id="password"  class="myInput">
                             </label>
                         </div>
-                        <a href="">Forgot password?</a>
+                        <a href="/users/password/new">Forgot password?</a>
                     </div>
-    
-                    <a class="btn btn2 btn3" href="">Log in</a>
-                    
+                    <input type="submit" name="commit" value="Log in" data-disable-with="Log in" class="btn btn2 btn3">
                 </div>
             </div>
 
