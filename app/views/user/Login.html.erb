@@ -8,8 +8,8 @@
     </div>
         <h3 style="color:white; margin:20px">Log in on Twitter</h3>
 
-<form class="new_user" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post">
-             <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+    <form class="new_user" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
 
         <div class="login_input">
             <label for="first_name">Phone, email, or username
@@ -23,17 +23,15 @@
             </label>
         </div>
 
-    <div>
-        <input type="submit" name="commit" value="Log in" data-disable-with="Log in" class="btn btn2" style="margin-bottom: 30px; width: 400px;">
-    </div>
-
+        <div>
+            <input type="submit" name="commit" value="Log in" data-disable-with="Log in" class="btn btn2" style="margin-bottom: 30px; width: 400px;">
+        </div>
+    </form>
     <div style="flex-direction: row;">
 
         <a href="/users/password/new">Forgot password?</a>
         <span style="color:rgb(111, 121, 117)">.</span>
         <a href="/users/sign_up">Sign up on Twitter</a>
     </div>
-
 </div>
-
 </div>

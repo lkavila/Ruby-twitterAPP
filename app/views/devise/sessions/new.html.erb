@@ -1,26 +1,39 @@
-<h2>Log in</h2>
+<div class=" container-index2">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="color-der col-index"
+    style="padding-top: 40px; flex-direction: column;" align="center">
+    <div>
+        <img src="../images/icons8-twitter-500.png" width="30px">
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
     </div>
-  <% end %>
+        <h3 style="color:white; margin:20px">Log in on Twitter</h3>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+    <form class="new_user" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
 
-<%= render "devise/shared/links" %>
+        <div class="login_input">
+            <label for="first_name">Phone, email, or username
+                <input  autofocus="autofocus" autocomplete="email" type="email" value name="user[email]" id="first_name"  class="LogInput">
+            </label>
+        </div>
+
+        <div class="login_input" >
+            <label for="Password" >Password
+                <input autocomplete="current-password" type="password" name="user[password]" id="Password"  class="LogInput">
+            </label>
+        </div>
+
+        <div>
+            <input type="submit" name="commit" value="Log in" data-disable-with="Log in" class="btn btn2" style="margin-bottom: 30px; width: 400px;">
+        </div>
+    </form>
+    <div style="flex-direction: row;">
+
+        <a href="/users/password/new">Forgot password?</a>
+        <span style="color:rgb(111, 121, 117)">.</span>
+        <a href="/users/sign_up">Sign up on Twitter</a>
+    </div>
+
+</div>
+
+</div>
