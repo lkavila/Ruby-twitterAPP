@@ -41,20 +41,20 @@
                     <div class="Myinput-field" style="width: 42%">
                         <label for="month" style="width: 100%; height:60%">Month
                         <br>
-                            <select id="month" class=" Myselect">
+                            <select  class=" Myselect" name="MES" id="MES" >
                               <option selected disabled="disabled" ></option>
-                              <option value="January">January</option>
-                              <option value="Febuary">Febuary</option>
-                              <option value="March">March</option>
-                              <option value="April">April</option>
-                              <option value="May">May</option>
-                              <option value="June">June</option>
-                              <option value="July">July</option>
-                              <option value="August">August</option>
-                              <option value="September">September</option>
-                              <option value="October">October</option>
-                              <option value="November">November</option>
-                              <option value="December">December</option>
+                              <option value=01>January</option>
+                              <option value=02>Febuary</option>
+                              <option value=03>March</option>
+                              <option value=04>April</option>
+                              <option value=05>May</option>
+                              <option value=06>June</option>
+                              <option value=07>July</option>
+                              <option value=08>August</option>
+                              <option value=09>September</option>
+                              <option value=10>October</option>
+                              <option value=11>November</option>
+                              <option value=12>December</option>
                             </select>
                         </label>
                     </div>
@@ -62,11 +62,11 @@
                       <div class="Myinput-field" style="width: 20%">
                         <label for="month" style="width: 100%; height:60%">Day
                         <br>
-                            <select id="month" class=" Myselect">
+                            <select name="DIA" id="DIA" class=" Myselect">
                               <option selected disabled="disabled" ></option>
                               
                                 <% for i in 1..31 %>
-                                  <option value="<%i%>"><%= i %></option>
+                                  <option value=<%i%>><%= i %></option>
                                 <% end %>
                             
                             </select>
@@ -76,11 +76,11 @@
                      <div class="Myinput-field" style="width: 30%">
                         <label for="month" style="width: 100%; height:60%">Year
                         <br>
-                            <select id="month" class=" Myselect">
+                            <select name='AÑO' id='AÑO' class=" Myselect">
                               <option selected disabled="disabled" ></option>
 
                                 <% for i in -2020..-1900 %>
-                                  <option value="<%i%>"><%= -1*i %></option>
+                                  <option value="<%-1*i%>"><%= -1*i %></option>
                                 <% end %>
 
                             </select>
@@ -89,6 +89,7 @@
             </div>
 
           <br>
+           <input id="datepicker" class="myInput" style="width:100%;color:black;">
 
           <div class="Myinput-field" style="width:90%;">
               <label for="password" style="width:100%;">Password
@@ -117,3 +118,45 @@
     </div>
   </div>
 </div>
+<script>
+var Mes=""
+var Dia=""
+var Año=""
+var date=""
+var mes = document.getElementById('MES');
+mes.addEventListener('change',
+  function(){
+    var selectedOption = this.options[mes.selectedIndex];
+    Mes=selectedOption.value;
+    date=Dia+"-"+Mes+"-"+Año;
+    document.getElementById('user_birth').value=date
+    
+    $( "#datepicker" ).datepicker().val(new Date(Dia+"/"+Mes+"/"+Año));
+    document.getElementById('datepicker').value=new Date(Dia+"/"+Mes+"/"+Año)
+  });
+var dia = document.getElementById('DIA');
+dia.addEventListener('change',
+  function(){
+    var selectedOption = this.options[dia.selectedIndex];
+    Dia=selectedOption.text;
+   date=Dia+"-"+Mes+"-"+Año;
+   document.getElementById('user_birth').value=date
+   
+    $( "#datepicker" ).datepicker().val(new Date(Dia+"/"+Mes+"/"+Año));
+    document.getElementById('datepicker').value=new Date(Dia+"/"+Mes+"/"+Año)
+
+  });
+var año = document.getElementById('AÑO');
+año.addEventListener('change',
+  function(){
+    var selectedOption = this.options[año.selectedIndex];
+    Año=selectedOption.text;
+   date=Dia+"-"+Mes+"-"+Año;
+   document.getElementById('user_birth').value= new Date(date)
+   
+    $( "#datepicker" ).datepicker().val(new Date(Dia+"/"+Mes+"/"+Año));
+    document.getElementById('datepicker').value=new Date(Dia+"/"+Mes+"/"+Año)
+
+  });
+
+</script>
