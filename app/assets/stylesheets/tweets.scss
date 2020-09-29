@@ -1,3 +1,19 @@
 // Place all the styles related to the Tweets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.profile_image {
+    width: 50px;
+    border-radius: 25px;
+}
+
+.mytextarea{
+    border-width: 0;
+    width: 100%;
+}
+
+
+.mytextarea:focus{
+    border-width: 0;
+    outline: none;
+}

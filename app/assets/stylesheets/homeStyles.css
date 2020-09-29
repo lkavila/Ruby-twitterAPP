@@ -1,3 +1,9 @@
+*{
+  font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+  margin: 0;
+
+}
+
 .home-col {
   height: 100vh;
   color: white;

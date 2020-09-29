@@ -10,8 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_29_021530) do
+ActiveRecord::Schema.define(version: 2020_09_29_023720) do
 
+  create_table "tweets", force: :cascade do |t|
+    t.text "text"
+    t.string "image"
+    t.integer "num_likes", default: 0, null: false
+    t.integer "num_shares", default: 0, null: false
+    t.integer "num_retweets", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
