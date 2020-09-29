@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
     def login 
         render '/user/Login'
     end
+
+    def home
+        render '/home'
+    end
     
     before_action :configure_permitted_parameters, if: :devise_controller?
 

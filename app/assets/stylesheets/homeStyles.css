@@ -1,0 +1,15 @@
+.home-col {
+  height: 100vh;
+  color: white;
+}
+.home-col-border {
+  border-left: 0.5px solid grey;
+  border-right: 0.5px solid grey;
+}
+.home-title-div {
+  border-bottom: 0.5px solid grey;
+}
+.home-padding-col {
+  padding-left: 15px;
+  padding-right: 15px;
+}
