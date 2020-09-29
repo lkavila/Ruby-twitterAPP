@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root 'application#index'
 
   get 'login', to: 'application#login'
+  get 'home', to:'application#home'
 end
