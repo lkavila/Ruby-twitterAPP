@@ -11,7 +11,7 @@ class TweetsController < ApplicationController
   # GET /tweets/1.json
   def show
   end
-  
+
   # GET /tweets/new
   def new
     @tweet = Tweet.new
@@ -28,8 +28,8 @@ class TweetsController < ApplicationController
 
     respond_to do |format|
       if @tweet.save
-        format.html { redirect_to @tweet, notice: 'Tweet was successfully created.' }
-        format.json { render :show, status: :created, location: @tweet }
+        format.html { redirect_to '/home', notice: 'Tweet was successfully created.' }
+        format.json { render :show, status: :created, location: '/home' }
       else
         format.html { render :new }
         format.json { render json: @tweet.errors, status: :unprocessable_entity }

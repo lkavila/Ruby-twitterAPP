@@ -12,6 +12,11 @@
     width: 100%;
 }
 
+.mycol-1 {
+    -ms-flex: 0 0 10.333333%;
+    flex: 0 0 10.333333%;
+    max-width: 10.333333%;
+  }
 
 .mytextarea:focus{
     border-width: 0;
