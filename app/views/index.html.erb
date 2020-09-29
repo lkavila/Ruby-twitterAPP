@@ -1,5 +1,5 @@
 <% if user_signed_in?%>
-    <h1> HOLA, <%= current_user.name%></h1>
+    <p> Hola, <%= current_user.name%></p>
 <%end %>
 <div class=" container-index ">
         <div class=" color-izq col-index imagen-izq responsive">
@@ -30,7 +30,7 @@
 
             <div class="responsive-quitar">
 
-            <form class="new_user" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post">
+            <form class="new_user" id="logging_user" action="/users/sign_in" accept-charset="UTF-8" method="post">
              <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
 
                 <div class=" Mycontainer-fluid" style="margin-bottom:5%; ">
@@ -51,8 +51,8 @@
                     </div>
                     <input type="submit" name="commit" value="Log in" data-disable-with="Log in" class="btn btn2 btn3">
                 </div>
-            </div>
-
+             </div>
+            </form>
 
             <br><br><br>
 
@@ -69,9 +69,9 @@
                         font-size: 12px; margin-bottom: 10px; font-weight: bold;">
                         Join Twitter today.
                     </p>
-                        <a class="btn btn1" href="/users/sign_up" style="margin-bottom: 13px;">
-                            Sign up
-                        </a>
+
+                <button type="button" class="btn btn1" style="width:200px;" data-toggle="modal" data-target="#RegisterModal">Sign up</button>
+
 
                         <a class="btn btn2" href="/login" style="margin-bottom: 5%;">
                             Log in
@@ -109,10 +109,9 @@
     
             <div class="color-der col-index" 
             style="padding-top: 1px;" align="center">
+            
+<button type="button" class="btn btn-primary" style="width:200px;" data-toggle="modal" data-target="#RegisterModal">Sign up</button>
 
-                <a class="btn btn1" href="/users/sign_up" style="margin-bottom: 20px; width: 150px;">
-                    Sign up
-                </a>
 
                 <a class="btn btn2" href="/users/sign_in" style="margin-bottom: 50px; width: 150px;">
                     Log in
@@ -148,3 +147,156 @@
         </ul>
     </div>
 </footer>
+
+
+<div class="modal fade" id="RegisterModal" tabindex="-1" role="dialog" aria-labelledby="RegisterModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="RegisterModalLabel">Create your account</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="new_user" id="new_user" target="_self" name="new_user" action="/users" accept-charset="UTF-8" method="post">
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+            <div class="Myinput-field" style="width:90%;">
+              <label for="name" style="width:100%;">Name
+                  <input autofocus="autofocus" autocomplete="name" type="text" value=""
+                   name="user[name]" id="user_name"  class="myInput" style="width:100%;color:black;">
+              </label>
+            </div>
+            
+          <br>
+
+            <div class="Myinput-field" style="width:90%;">
+              <label for="email" style="width:100%;">Email
+                  <input autofocus="autofocus" autocomplete="email" type="email" value=""
+                   name="user[email]" id="user_email" class="myInput" style="width:100%;color:black;">
+              </label>
+            </div>
+
+            <br>
+
+          <p style="font-weight: bold; font-size: 11px">Birth Day </p>
+          <p style="font-size: 11px">This information will not be public. 
+          Confirm your own age even if this account is for a company or a pet or something else</p>
+
+          <div class=" container-fluid row" >
+                    <div class="Myinput-field" style="width: 42%">
+                        <label for="month" style="width: 100%; height:60%">Month
+                        <br>
+                            <select  class=" Myselect" name="MES" id="MES" >
+                              <option selected disabled="disabled" ></option>
+                              <option value=01>January</option>
+                              <option value=02>Febuary</option>
+                              <option value=03>March</option>
+                              <option value=04>April</option>
+                              <option value=05>May</option>
+                              <option value=06>June</option>
+                              <option value=07>July</option>
+                              <option value=08>August</option>
+                              <option value=09>September</option>
+                              <option value=10>October</option>
+                              <option value=11>November</option>
+                              <option value=12>December</option>
+                            </select>
+                        </label>
+                    </div>
+
+                      <div class="Myinput-field" style="width: 20%">
+                        <label for="month" style="width: 100%; height:60%">Day
+                        <br>
+                            <select name="DIA" id="DIA" class=" Myselect">
+                              <option selected disabled="disabled" ></option>
+                              
+                                <% for i in 1..31 %>
+                                  <option value=<%i%>><%= i %></option>
+                                <% end %>
+                            
+                            </select>
+                        </label>
+                    </div>
+
+                     <div class="Myinput-field" style="width: 30%">
+                        <label for="month" style="width: 100%; height:60%">Year
+                        <br>
+                            <select name='AÑO' id='AÑO' class=" Myselect">
+                              <option selected disabled="disabled" ></option>
+
+                                <% for i in -2020..-1900 %>
+                                  <option value="<%-1*i%>"><%= -1*i %></option>
+                                <% end %>
+
+                            </select>
+                        </label>
+                    </div>
+            </div>
+
+          <br>
+           <input type="hidden" id="user_birth"name="user[birth]" class="myInput" style="width:100%;color:black;">
+
+          <div class="Myinput-field" style="width:90%;">
+              <label for="password" style="width:100%;">Password
+                  <input autocomplete="new-password" type="password" 
+                  name="user[password]" id="user_password" class="myInput" style="width:100%;color:black;">
+              </label>
+            </div>
+          <br>
+
+            <div class="Myinput-field" style="width:90%;">
+              <label for="password_confirmation" style="width:100%;">Confirm password
+                  <input autocomplete="new-password" type="password"name="user[password_confirmation]" 
+                  id="user_password_confirmation" class="myInput" style="width:100%;color:black;">
+              </label>
+            </div>
+            <div class="modal-footer">
+            <div class="justify-content-between" style="width:100%;">
+                  <button type="button" class="btn btn-secondary" style="width:30%;" data-dismiss="modal">Close</button>
+                  <input type="submit" name="commit" class="btn btn1"
+                  formtarget="_self" value="Create" style="width:60%;" data-disable-with="Sign up"></button>
+            </div>
+
+  
+      </div>
+            
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script>
+var Mes=""
+var Dia=""
+var Año=""
+var date=""
+var mes = document.getElementById('MES');
+mes.addEventListener('change',
+  function(){
+    var selectedOption = this.options[mes.selectedIndex];
+    Mes=selectedOption.value;
+    date=Dia+"/"+Mes+"/"+Año;
+    document.getElementById('user_birth').value=date
+  });
+var dia = document.getElementById('DIA');
+dia.addEventListener('change',
+  function(){
+    var selectedOption = this.options[dia.selectedIndex];
+    Dia=selectedOption.text;
+    date=Dia+"/"+Mes+"/"+Año;
+   document.getElementById('user_birth').value=date
+
+  });
+var año = document.getElementById('AÑO');
+año.addEventListener('change',
+  function(){
+    var selectedOption = this.options[año.selectedIndex];
+    Año=selectedOption.text;
+    date=Dia+"/"+Mes+"/"+Año;
+   document.getElementById('user_birth').value=date
+
+  });
+
+</script>

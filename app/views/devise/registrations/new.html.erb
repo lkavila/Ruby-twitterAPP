@@ -1,7 +1,7 @@
 <h2> Sign Up</h2>
 
 <%= render "devise/shared/links" %>
-<button type="button" class="btn btn-primary" style="width:200px;" data-toggle="modal" data-target="#RegisterModal">Sign up</button>
+<button type="button" id="registerBtn" class="btn btn-primary" style="width:200px;" data-toggle="modal" data-target="#RegisterModal">Sign up</button>
 
 <div class="modal fade" id="RegisterModal" tabindex="-1" role="dialog" aria-labelledby="RegisterModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -13,7 +13,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form class="new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post">
+        <form class="new_user" id="new_user" target="_self" name="new_user" action="/users" accept-charset="UTF-8" method="post">
           <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
             <div class="Myinput-field" style="width:90%;">
               <label for="name" style="width:100%;">Name
@@ -89,7 +89,7 @@
             </div>
 
           <br>
-           <input id="datepicker" class="myInput" style="width:100%;color:black;">
+           <input type="hidden" id="user_birth" name="user[birth]" class="myInput" style="width:100%;color:black;">
 
           <div class="Myinput-field" style="width:90%;">
               <label for="password" style="width:100%;">Password
@@ -105,10 +105,13 @@
                   id="user_password_confirmation" class="myInput" style="width:100%;color:black;">
               </label>
             </div>
-                  <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" style="width:150px;" data-dismiss="modal">Close</button>
-        
-        <input type="submit" name="commit" value="Create" data-disable-with="Sign up">
+            <div class="modal-footer">
+            <div class="justify-content-between" style="width:100%;">
+                  <button type="button" class="btn btn-secondary" style="width:30%;" data-dismiss="modal">Close</button>
+                  <input type="submit" name="commit" class="btn btn1"
+                  formtarget="_self" value="Create" style="width:60%;" data-disable-with="Sign up"></button>
+            </div>
+
   
       </div>
             
@@ -119,6 +122,12 @@
   </div>
 </div>
 <script>
+function redireccionar(){
+  document.getElementById('registerBtn').style.display='active';
+  $("#registerBtn").trigger("click");
+} 
+setTimeout ("redireccionar()", 100); //tiempo expresado en milisegundos
+
 var Mes=""
 var Dia=""
 var Año=""
@@ -128,22 +137,16 @@ mes.addEventListener('change',
   function(){
     var selectedOption = this.options[mes.selectedIndex];
     Mes=selectedOption.value;
-    date=Dia+"-"+Mes+"-"+Año;
+    date=Dia+"/"+Mes+"/"+Año;
     document.getElementById('user_birth').value=date
-    
-    $( "#datepicker" ).datepicker().val(new Date(Dia+"/"+Mes+"/"+Año));
-    document.getElementById('datepicker').value=new Date(Dia+"/"+Mes+"/"+Año)
   });
 var dia = document.getElementById('DIA');
 dia.addEventListener('change',
   function(){
     var selectedOption = this.options[dia.selectedIndex];
     Dia=selectedOption.text;
-   date=Dia+"-"+Mes+"-"+Año;
+    date=Dia+"/"+Mes+"/"+Año;
    document.getElementById('user_birth').value=date
-   
-    $( "#datepicker" ).datepicker().val(new Date(Dia+"/"+Mes+"/"+Año));
-    document.getElementById('datepicker').value=new Date(Dia+"/"+Mes+"/"+Año)
 
   });
 var año = document.getElementById('AÑO');
@@ -151,11 +154,8 @@ año.addEventListener('change',
   function(){
     var selectedOption = this.options[año.selectedIndex];
     Año=selectedOption.text;
-   date=Dia+"-"+Mes+"-"+Año;
-   document.getElementById('user_birth').value= new Date(date)
-   
-    $( "#datepicker" ).datepicker().val(new Date(Dia+"/"+Mes+"/"+Año));
-    document.getElementById('datepicker').value=new Date(Dia+"/"+Mes+"/"+Año)
+    date=Dia+"/"+Mes+"/"+Año;
+   document.getElementById('user_birth').value=date
 
   });
 
