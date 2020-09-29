@@ -1,26 +1,26 @@
-<%= form_with(model: tweet, local: true) do |form| %>
-  <% if tweet.errors.any? %>
+<%= form_with(model: @tweet, local: true) do |form| %>
+  <% if @tweet.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(tweet.errors.count, "error") %> prohibited this tweet from being saved:</h2>
+      <h2><%= pluralize(@tweet.errors.count, "error") %> prohibited this tweet from being saved:</h2>
 
       <ul>
-        <% tweet.errors.full_messages.each do |message| %>
+        <% @tweet.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-<div class="card" style="width: 35%;">
+<div class="card">
   <div class="card-body">
     <h5 class="card-title">Home</h5>
     <hr>
 
   <div class="row">
-    <div class="col-sm-2">
+    <div class="col-2">
       <img src="../images/default_profile_400x400.png" class="profile_image"> 
     </div>
-    <div class="col-sm">
+    <div class="col-10">
         <textarea class="mytextarea" placeholder="What's happening?" name="tweet[text]" id="tweet_text"></textarea>
         <hr>
         <div class="row">
@@ -30,7 +30,7 @@
           </div>
           <div class=" col-5 d-flex justify-content-end">
               <input type="submit" name="commit" class=" btn btn1"  value="Tweet" data-disable-with="Tweet"
-              style="margin-bottom: 20px; width: auto; font-size:15px;">
+              style="width: auto; font-size:15px;">
           </div>
         </div>
  

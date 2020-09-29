@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
     end
 
     def home
+        @tweet = Tweet.new
+        @tweets = Tweet.all
         render '/home'
     end
     
