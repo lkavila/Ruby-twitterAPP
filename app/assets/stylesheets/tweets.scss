@@ -3,22 +3,20 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .profile_image {
-    width: 50px;
-    border-radius: 25px;
+  width: 50px;
+  border-radius: 25px;
 }
-
-.mytextarea{
-    border-width: 0;
-    width: 100%;
+.mytextarea {
+  border-width: 0;
+  width: 100%;
+  color: white;
 }
-
 .mycol-1 {
-    -ms-flex: 0 0 10.333333%;
-    flex: 0 0 10.333333%;
-    max-width: 10.333333%;
-  }
-
-.mytextarea:focus{
-    border-width: 0;
-    outline: none;
+  -ms-flex: 0 0 10.333333%;
+  flex: 0 0 10.333333%;
+  max-width: 10.333333%;
+}
+.mytextarea:focus {
+  border-width: 0;
+  outline: none;
 }

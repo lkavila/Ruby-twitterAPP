@@ -1,21 +1,19 @@
-*{
-    font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
-    margin: 0;
-
-}
-i{
+* {
   font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
-
+  margin: 0;
+}
+i {
+  font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
 }
 /*Inicio estilos index o sing in */
-.color-der{
-    background-color: rgb(5, 21, 46);
+.color-der {
+  background-color: #15202b;
 }
-.color-izq{
-    background-color: rgb(123, 215, 238);
+.color-izq {
+  background-color: rgb(123, 215, 238);
 }
 
-.imagen-izq{
+.imagen-izq {
   background-image: url("../../../images/icons8-twitter-1600r.png");
   background-position: 35px 50%;
   background-size: 870px;
@@ -24,88 +22,90 @@ i{
   height: 100%;
 }
 
-.container-index{
-    width: 100%;
-    height: 94vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.container-index {
+  width: 100%;
+  height: 94vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.responsive-dejar{
+.responsive-dejar {
   display: none;
 }
-.responsive{
+.responsive {
   display: flex;
 }
-@media screen and (max-width: 830px ){
-    .container-index{
-        flex-direction: column;
-    }
-    .imagen-izq{
-      background-image: url("../../../images/icons8-twitter-1600r.png");
-      background-position: center;
-      background-size: 300px;
-      background-repeat: no-repeat;
-    }
-    .responsive-quitar{
-      display: none;
-    }
-    .responsive-dejar{
-      display: flex;
-    }
-    .responsive{
-      display: none;
-    }
-}
-
-@media screen and (max-width: 400px ){
- .mensaje{
-   width: 100%;
- }
- .btn{
-   width: 80%;
- }
-}
-
-.col-index{
-    width: 100%;
-    height: 100%;
-}
-
-.mensaje{
-    width: 50vh;
-    color:white;
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 60px;
+@media screen and (max-width: 830px) {
+  .container-index {
     flex-direction: column;
+  }
+  .imagen-izq {
+    background-image: url("../../../images/icons8-twitter-1600r.png");
+    background-position: center;
+    background-size: 300px;
+    background-repeat: no-repeat;
+  }
+  .responsive-quitar {
+    display: none;
+  }
+  .responsive-dejar {
+    display: flex;
+  }
+  .responsive {
+    display: none;
+  }
 }
 
-.mensajes{
+@media screen and (max-width: 400px) {
+  .mensaje {
+    width: 100%;
+  }
+  .btn {
+    width: 80%;
+  }
+}
+
+.col-index {
+  width: 100%;
+  height: 100%;
+}
+
+.mensaje {
+  width: 50vh;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 60px;
+  flex-direction: column;
+}
+
+.mensajes {
   margin-left: 30%;
   align-self: center;
-  color:white;
+  color: white;
   font-size: 14px;
   font-weight: bold;
 }
 
-.btn{
-    display: inline-block;
-    text-decoration:none !important;
-    border-radius: 20px;
-    width: 300px;
-    padding: 5px;
-    font-size: 13px;
-    text-align: center;
-    font-weight: bold;
-    cursor: pointer;
+.btn {
+  display: inline-block;
+  text-decoration: none !important;
+  border-radius: 20px;
+  width: 300px;
+  padding: 5px;
+  font-size: 13px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
 }
-.btn1:hover {background-color:rgb(3, 112, 207);}
+.btn1:hover {
+  background-color: rgb(3, 112, 207);
+}
 
-.btn1{
+.btn1 {
   background-color: rgb(0, 135, 255);
-  color:rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
 }
 
 .btn:active {
@@ -113,14 +113,14 @@ i{
   transform: translateY(2px);
 }
 
-.btn2{
-    border: 1px solid rgb(0, 136, 255);
-    color:rgb(0, 140, 255);
+.btn2 {
+  border: 1px solid rgb(0, 136, 255);
+  color: rgb(0, 140, 255);
 }
 .btn2:hover {
-  background-color:rgba(89, 145, 194, 0.062);
+  background-color: rgba(89, 145, 194, 0.062);
   border: 1px solid rgb(0, 136, 255);
-  color:rgb(0, 140, 255);
+  color: rgb(0, 140, 255);
 }
 
 .btn2:active {
@@ -128,61 +128,57 @@ i{
   background-color: rgb(0, 135, 255);
   transition: all 300ms ease-out;
   transform: translateY(2px);
-  color:white;
+  color: white;
 }
 
-.btn3{
+.btn3 {
   width: 50px;
   border: 1px solid rgb(0, 136, 255);
-  color:rgb(0, 140, 255);
+  color: rgb(0, 140, 255);
 }
 
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding-top: 5px;
-    overflow: hidden;
-    background-color: rgb(5, 21, 46);
-  }
-  
-  li {
-      font-size:12px;
-      flex-direction: row;
-      color: rgb(189, 186, 186);
-      text-align: center;
-      display: inline-flex;
-  }
-  
-  li a {
-    color: rgb(189, 186, 186);
-    text-align: center;
-    padding: 7px;
-    text-decoration-color: currentcolor;
-    text-decoration-style: solid;
-    text-decoration-line: none;
-    font-size:12px;
-  }
+  list-style-type: none;
+  margin: 0;
+  padding-top: 5px;
+  overflow: hidden;
+  background-color: #15202b;
+}
 
-  a:hover{
-    text-decoration-line: underline;
-  }
+li {
+  font-size: 12px;
+  flex-direction: row;
+  color: rgb(189, 186, 186);
+  text-align: center;
+  display: inline-flex;
+}
 
-  .d-flex {
-    display: -ms-flexbox !important;
-    display: flex !important;
-  }
+li a {
+  color: rgb(189, 186, 186);
+  text-align: center;
+  padding: 7px;
+  text-decoration-color: currentcolor;
+  text-decoration-style: solid;
+  text-decoration-line: none;
+  font-size: 12px;
+}
 
-  .Mycontainer-fluid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-  }
+a:hover {
+  text-decoration-line: underline;
+}
+
+.d-flex {
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+.Mycontainer-fluid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 /*Fin estilos index o sing in */
-
-
-
 
 /*Inicio Inputs styles
 input{
@@ -198,66 +194,64 @@ input{
     transition: all 200ms ease-out;
 }*/
 
-  .Myselect{
-    background-color: transparent;
-    border: 0;
-    border-bottom:2px solid rgb(161, 161, 161);
+.Myselect {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px solid rgb(161, 161, 161);
 
-    width: 100%;
-    height: 100%;
-  }
-  select:focus{
-    border-bottom:2px solid rgb(9, 107, 204);
-    transition: all 200ms ease-out;
-  }
-  .Myinput-field{
-      margin-right: 5px;
-      margin-left: 5px;
-      background-color: rgba(187, 186, 186, 0.103);
-      border-radius: 3px;
-      width: 170px;
-      height: 51px;
-      
-  }
+  width: 100%;
+  height: 100%;
+}
+select:focus {
+  border-bottom: 2px solid rgb(9, 107, 204);
+  transition: all 200ms ease-out;
+}
+.Myinput-field {
+  margin-right: 5px;
+  margin-left: 5px;
+  background-color: rgba(187, 186, 186, 0.103);
+  border-radius: 3px;
+  width: 170px;
+  height: 51px;
+}
 
-  .myInput{
-    width: 170px;
-    color: rgb(255, 255, 255);
-    border-bottom:2px solid rgb(167, 165, 165);
+.myInput {
+  width: 170px;
+  color: rgb(255, 255, 255);
+  border-bottom: 2px solid rgb(167, 165, 165);
+}
+/* label color */
+.Myinput-field label {
+  color: rgb(207, 207, 207);
+  font-size: 14px;
+  text-align: left;
+}
 
-  }
-  /* label color */
-  .Myinput-field label {
-    color: rgb(207, 207, 207);
-    font-size:14px;
-    text-align: left;
-  }
-
- .inputSpan{
+.inputSpan {
   display: flex;
   flex-direction: column;
- }
+}
 /* span color */
 .inputSpan a {
   color: rgb(0, 135, 255);
-  font-size:11px;
+  font-size: 11px;
   margin-left: 15px;
   text-align: left;
-  background-color: rgb(5, 21, 46);
+  background-color: #15202b;
   cursor: pointer;
   text-decoration: none;
 }
-.inputSpan a:hover{
+.inputSpan a:hover {
   text-decoration-line: underline;
 }
 
-  input:focus{
-    border-bottom:2px solid rgb(9, 107, 204);
-    transition: all 200ms ease-out;
-  }
-  label:focus-within {
-    color: rgb(9, 107, 204);
-  }
+input:focus {
+  border-bottom: 2px solid rgb(9, 107, 204);
+  transition: all 200ms ease-out;
+}
+label:focus-within {
+  color: rgb(9, 107, 204);
+}
 
 /*
 funciona si en el html el label esta debajo del input
@@ -266,4 +260,4 @@ funciona si en el html el label esta debajo del input
     color:rgb(9, 107, 204);
   }*/
 
-  /*Fin Inputs styles*/
+/*Fin Inputs styles*/

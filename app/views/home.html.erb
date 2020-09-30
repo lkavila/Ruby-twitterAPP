@@ -1,15 +1,96 @@
 <div class="container-fluid"> 
     <div class="row color-der">
-        <div class="col-3 home-col" style="margin-Top:10px">
-            <img src="./images/icons8-twitter-500.png" width="30px"> 
-        </div>
-        <div class=" col-6" style="padding:0">
-            <%= render :template =>'tweets/_form.html.erb', tweet: @tweet %>
+        <div class="col-3 home-col home-menu-lis" style="margin-Top:10px">
+            <div >
+                <span class='row ' style=' padding-left: 5%;'>
+                    <img src="./images/gorjeo.svg" width="30px"  style="margin-bottom:20px"> 
+                </span>
+                <span class='row home-menu-lis-item'>
+                    <div>
+                        <img src="./images/casa.svg" width="30px"  > 
+                    </div>
+                    
+                    <h1 style="font-size: 20px; margin-left:20px; font-weight: bold;">Home</h1>
+                </span>
+                <span class='row home-menu-lis-item'>
+                    <div>
+                        <img src="./images/etiqueta.svg" width="30px"> 
+                    </div>
+                    
+                    <h1 style="font-size: 20px; margin-left:20px; font-weight: bold;">Explore</h1>
+                </span>
+                <span class='row home-menu-lis-item'>
+                    <div>
+                        <img src="./images/campana.svg" width="30px"> 
+                    </div>
+                    
+                    <h1 style="font-size: 20px; margin-left:20px; font-weight: bold;">Notifications</h1>
+                </span>
+                <span class='row home-menu-lis-item'>
+                    <div>
+                        <img src="./images/email.svg" width="30px" > 
+                    </div>
+                    
+                    <h1 style="font-size: 20px; margin-left:20px; font-weight: bold;">Messages</h1>
+                </span>
+                <span class='row home-menu-lis-item'>
+                    <div>
+                        <img src="./images/marcador.svg" width="30px"> 
+                    </div>
+                    
+                    <h1 style="font-size: 20px; margin-left:20px; font-weight: bold;">Bookmarks</h1>
+                </span>
+                <span class='row home-menu-lis-item'>
+                    <div>
+                        <img src="./images/lista.svg" width="30px"> 
+                    </div>
+                    
+                    <h1 style="font-size: 20px; margin-left:20px; font-weight: bold;">List</h1>
+                </span>
+                <span class='row home-menu-lis-item'>
+                    <div>
+                        <img src="./images/usuario.svg" width="30px"> 
+                    </div>
+                    
+                    <h1 style="font-size: 20px; margin-left:20px; font-weight: bold;">Profile</h1>
+                </span>
+                <span class='row home-menu-lis-item'>
+                    <div>
+                        <img src="./images/mas.svg" width="30px"> 
+                    </div>
+                    <h1 style="font-size: 20px; margin-left:20px; font-weight: bold;">More</h1>
+                </span>
+            </div>
 
+            <div class="btn-group dropup">
+                 <span class='row home-menu-lis-item' style="padding-right: 10px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     <div>
+                        <img src="./images/default_profile_400x400.png" width="30px" style="border-radius: 25px;"> 
+                    </div>
+                    <h1 style="font-size: 15px; margin-left:20px; font-weight: bold;">@usuario
+                        <i class="fas fa-angle-down" style='margin-left:20px;'></i>
+                    </h1>                 
+                </span>
+                <div class="dropdown-menu color-der home-toggel">
+                <span class='row '>
+                    <div>
+                        <img src="./images/default_profile_400x400.png" width="30px" style="border-radius: 25px;">  
+                    </div>
+                    <h1 style="font-size: 20px; margin-left:20px; font-weight: bold;">@usuario</h1>
+                </span>
+                <hr style='background:white; height:0.1px;'>
+                <%= link_to 'Log out', destroy_user_session_path, method: :delete%>
+                </div>
+            </div>
+        </div>
+        <div class=" col-6 home-col-border home-col" style="padding:0">
+            <%= render :template =>'tweets/_form.html.erb', tweet: @tweet %>
+            
             <%= render :template =>'tweets/index.html.erb', tweet: @tweets %>
         </div>
         <div class="col-3 home-col">
-            col 3
+           <input placeholder="Search Twitter" class="home-barra-busqueda">
         </div>
     </div>
 <div>
+<script src="https://kit.fontawesome.com/c796510b88.js" crossorigin="anonymous"></script>
