@@ -1,8 +1,19 @@
-<h2> Sign Up</h2>
 
-<%= render "devise/shared/links" %>
-<button type="button" id="registerBtn" class="btn btn-primary" style="width:200px;" data-toggle="modal" data-target="#RegisterModal">Sign up</button>
-
+<div class=" container-index2">
+  <div class="color-der col-index" style="padding-top: 40px; flex-direction: column;" align="center">
+    <div>
+      <img src="../images/icons8-twitter-500.png" width="30px">
+    </div>
+      <h3 style="color:white; margin:20px">Sign Up on Twitter</h3>
+      <button type="button" id="registerBtn" class="btn btn-primary" style="width:400px;" data-toggle="modal" data-target="#RegisterModal">Sign up</button>
+    <div style="flex-direction: row;">
+        <a href="/users/sign_in">Sign in on Twitter</a>x
+        <span style="color:rgb(111, 121, 117)">.</span>
+        <a href="/users/password/new">Forgot password?</a>
+    </div>
+  </div>
+</div>
+  
 <div class="modal fade" id="RegisterModal" tabindex="-1" role="dialog" aria-labelledby="RegisterModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -111,8 +122,7 @@
                   <input type="submit" name="commit" class="btn btn1"
                   formtarget="_self" value="Create" style="width:60%;" data-disable-with="Sign up">
             </div>
-
-  
+            <a href="/users/confirmation/new">Didn't receive confirmation instructions?</a>
       </div>
             
         </form>

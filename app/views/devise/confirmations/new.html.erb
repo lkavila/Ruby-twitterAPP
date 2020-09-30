@@ -1,16 +1,35 @@
-<h2>Resend confirmation instructions</h2>
+<div class=" container-index2">
 
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="color-der col-index"
+    style="padding-top: 40px; flex-direction: column;" align="center">
+    <div>
+        <img src="../images/icons8-twitter-500.png" width="30px">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
-  </div>
+    </div>
+        <h3 style="color:white; margin:20px">Resend confirmation instructions</h3>
 
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
-  </div>
-<% end %>
+    <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= render "devise/shared/links" %>
+        <div class="login_input">
+            <label for="first_name">Phone, email, or username
+                <input  autofocus="autofocus" autocomplete="email" type="email" value name="user[email]" id="first_name"  class="LogInput">
+            </label>
+        </div>
+        <div>
+          <input type="submit" name="commit" value="Resend confirmation instructions" data-disable-with="Resend confirmation instructions" class="btn btn2" style="margin-bottom: 30px; width: 400px;">
+        </div>
+    <% end %>
+    <div style="flex-direction: row;">
+         <a href="/users/sign_in">Log in</a>
+         <span style="color:rgb(111, 121, 117)">.</span>
+         <a href="/users/sign_up">Sign up on Twitter</a>
+         <span style="color:rgb(111, 121, 117)">.</span>
+        <a href="/users/password/new">Forgot password?</a>
+        
+       
+    </div>
+
+</div>
+
+</div>

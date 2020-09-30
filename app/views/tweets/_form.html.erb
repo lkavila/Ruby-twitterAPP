@@ -10,26 +10,27 @@
       </ul>
     </div>
   <% end %>
-<div class="card color-der" style="padding-bottom:15px;  border-radius:0" ><!--style="color:white; background-color: rgb(5, 21, 46);"-->
+<div class="card color-der" style="padding-bottom:15px;padding-top:15px;  border-radius:0" ><!--style="color:white; background-color: rgb(5, 21, 46);"-->
   <div class="card-body" style="padding:0">
     <h5 class="card-title home-padding-col" style="font-weight: bold;">Home</h5>
     <hr style="background:grey;">
-
   <div class="row home-padding-col" >
     <div style="width:10%;">
       <img src="../images/default_profile_400x400.png" class="profile_image"> 
     </div>
     <div style="width:90%;">
-        <textarea class="mytextarea color-der" placeholder="What's happening?" style="font-size:17px;"
-        name="tweet[text]" id="tweet_text"></textarea>
+      <textarea class="mytextarea color-der" placeholder="What's happening?" style="font-size:17px;"
+        name="tweet[text]" id="tweet_text" maxlength="280"></textarea>
         <div class="row">
           <div class=" col-7 d-flex justify-content-start">
               <a href="#" class="card-link">Card link</a>
               <a href="#" class="card-link">Another link</a>
           </div>
           <div class=" col-5 d-flex justify-content-end">
-              <input type="submit" name="commit" class=" btn btn1"  value="Tweet" data-disable-with="Tweet"
-              style="width: auto; font-size:15px; width:90px;height:35px">
+              <input id="lengthCounter" readonly style="border: 1px solid #1da1f2;border-radius:25px;  width:35px;height:35px;  text-align: center">
+              <hr style="background:grey;margin:0; width:1px;height:30px;margin-left:5px;margin-right:5px;">
+              <input id="btn-tweet" type="submit" name="commit" class=" btn btn1"  value="Tweet" data-disable-with="Tweet"
+              style="width: auto; font-size:15px; width:90px;height:35px;" >
           </div>
         </div>
     </div>
@@ -38,3 +39,25 @@
 </div>
 <% end %>
 <hr style="background:grey;height:0px; margin:0; border-top: 10px solid #253341; border-bottom: 10px solid #253341;">
+<script>
+document.getElementById('btn-tweet').disabled = true;
+var input=  document.getElementById('tweet_text');
+input.addEventListener('input',function(){
+  var counter = document.getElementById('lengthCounter');
+  if(this.value.length>0){
+    document.getElementById('btn-tweet').disabled = false;
+    counter.value=280-this.value.length;
+  }else{
+    counter.value="";
+    document.getElementById('btn-tweet').disabled = true;
+  }
+    if(280-this.value.length==0){
+    counter.style.border="1px solid red"
+  }else if(280-this.value.length <= 20){
+    counter.style.border="1px solid orange"
+  }  else{
+    counter.style.border="1px solid #1da1f2"
+  }
+
+})
+</script>
