@@ -205,6 +205,7 @@ input{
 select:focus {
   border-bottom: 2px solid rgb(9, 107, 204);
   transition: all 200ms ease-out;
+  outline: none;
 }
 .Myinput-field {
   margin-right: 5px;
@@ -212,7 +213,7 @@ select:focus {
   background-color: rgba(187, 186, 186, 0.103);
   border-radius: 3px;
   width: 170px;
-  height: 51px;
+  height: 48px;
 }
 
 .myInput {

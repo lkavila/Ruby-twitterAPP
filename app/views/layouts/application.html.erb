@@ -18,25 +18,22 @@
   </head>
 
   <body>
-    <%- if user_signed_in? %>
-      <ul class=" nav justify-content-end">
-       
-              <li class="nav-item">
-                <%= link_to 'Salir', destroy_user_session_path, method: :delete%>
-              </li>
-      </ul>
-    <% end %>
       <% if(notice) %>
       <div class="alert alert-primary alert-dismissible fade show" role="alert" style="margin-bottom:0">
         <%= notice %>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
+          <span aria-hidden="true">&times;</span>
         </button>
       </div>
        <% end %>
-
-       <% if(alert) %>
-        <p style="color:white;background-color: rgb(5, 21, 46);" class="alert"><%= alert %></p>
+       
+    <% if(alert) %>
+      <div class="alert alert-primary alert-dismissible fade show" role="alert" style="margin-bottom:0">
+        <%= alert %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
        <% end %>
     <%= yield %>
 

@@ -6,4 +6,6 @@ Rails.application.routes.draw do
 
   get 'login', to: 'application#login'
   get 'home', to:'application#home'
+  get 'index', to: 'application#index'
+
 end

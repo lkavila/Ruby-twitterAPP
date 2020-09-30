@@ -35,7 +35,7 @@
             <form class="new_user" id="logging_user" action="/users/sign_in" accept-charset="UTF-8" method="post">
              <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
 
-                <div class=" Mycontainer-fluid" style="margin-bottom:5%; ">
+                <div class=" Mycontainer-fluid" style="margin-bottom:20px; ">
                     <div class="Myinput-field">
                         <label for="first_name">Phone, email, or username
                             <input autofocus="autofocus" autocomplete="email" type="email" value name="user[email]" id="first_name"  class="myInput">
@@ -43,7 +43,7 @@
                     </div>
     
     
-                    <div class="inputSpan" style="margin-top:15px;">
+                    <div class="inputSpan" style="margin-top:17px;">
                         <div class="Myinput-field">
                             <label for="password">Password
                                 <input autocomplete="current-password" type="password" name="user[password]" id="password"  class="myInput">
@@ -72,7 +72,7 @@
                         Join Twitter today.
                     </p>
 
-                <button type="button" class="btn btn1" style="width:200px;" data-toggle="modal" data-target="#RegisterModal">Sign up</button>
+                <button type="button" class="btn btn1" style="margin-bottom:20px;" data-toggle="modal" data-target="#RegisterModal">Sign up</button>
 
 
                         <a class="btn btn2" href="/login" style="margin-bottom: 5%;">
@@ -112,7 +112,8 @@
             <div class="color-der col-index" 
             style="padding-top: 1px;" align="center">
             
-<button type="button" class="btn btn-primary" style="width:200px;" data-toggle="modal" data-target="#RegisterModal">Sign up</button>
+          <button type="button" class="btn btn-primary" style="margin-bottom: 10px; width: 150px;" 
+          data-toggle="modal" data-target="#RegisterModal">Sign up</button>
 
 
                 <a class="btn btn2" href="/users/sign_in" style="margin-bottom: 50px; width: 150px;">

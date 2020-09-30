@@ -30,6 +30,12 @@
       <img src="../images/default_profile_400x400.png" class="profile_image"> 
     </div>
     <div style="width:90%;">
+        <div class="row" >
+          <p style="font-weight: bold;margin-left:15px"><%= current_user.name %></p>
+          <p class="username">@UserName</p>
+          <p class="username">.</p>
+          <p class="username">Time</p>
+        </div>
         <p><%= tweet.text %></p>
         <div class="row">
           <div class=" col-11 d-flex justify-content-around">

@@ -7,68 +7,75 @@
                 </span>
                 <span class='row home-menu-lis-item'>
                     <div>
-                        <img src="./images/casa.svg" width="30px"  > 
+                        <img src="./images/casa.svg" width="25px"  > 
                     </div>
                     
-                    <h1 style="font-size: 20px; margin-left:20px; font-weight: bold;">Home</h1>
+                    <h2 style="font-size: 17px; margin-left:25px; font-weight: bold;">Home</h2>
                 </span>
                 <span class='row home-menu-lis-item'>
                     <div>
-                        <img src="./images/etiqueta.svg" width="30px"> 
+                        <img src="./images/etiqueta.svg" width="25px"> 
                     </div>
                     
-                    <h1 style="font-size: 20px; margin-left:20px; font-weight: bold;">Explore</h1>
+                    <h2 style="font-size: 17px; margin-left:25px; font-weight: bold;">Explore</h2>
                 </span>
                 <span class='row home-menu-lis-item'>
                     <div>
-                        <img src="./images/campana.svg" width="30px"> 
+                        <img src="./images/campana.svg" width="25px"> 
                     </div>
                     
-                    <h1 style="font-size: 20px; margin-left:20px; font-weight: bold;">Notifications</h1>
+                    <h2 style="font-size: 17px; margin-left:25px; font-weight: bold;">Notifications</h2>
                 </span>
                 <span class='row home-menu-lis-item'>
                     <div>
-                        <img src="./images/email.svg" width="30px" > 
+                        <img src="./images/email.svg" width="25px" > 
                     </div>
                     
-                    <h1 style="font-size: 20px; margin-left:20px; font-weight: bold;">Messages</h1>
+                    <h2 style="font-size: 17px; margin-left:25px; font-weight: bold;">Messages</h2>
                 </span>
                 <span class='row home-menu-lis-item'>
                     <div>
-                        <img src="./images/marcador.svg" width="30px"> 
+                        <img src="./images/marcador.svg" width="25px"> 
                     </div>
                     
-                    <h1 style="font-size: 20px; margin-left:20px; font-weight: bold;">Bookmarks</h1>
+                    <h2 style="font-size: 17px; margin-left:25px; font-weight: bold;">Bookmarks</h2>
                 </span>
                 <span class='row home-menu-lis-item'>
                     <div>
-                        <img src="./images/lista.svg" width="30px"> 
+                        <img src="./images/lista.svg" width="25px"> 
                     </div>
                     
-                    <h1 style="font-size: 20px; margin-left:20px; font-weight: bold;">List</h1>
+                    <h2 style="font-size: 17px; margin-left:25px; font-weight: bold;">List</h2>
                 </span>
                 <span class='row home-menu-lis-item'>
                     <div>
-                        <img src="./images/usuario.svg" width="30px"> 
+                        <img src="./images/usuario.svg" width="25px"> 
                     </div>
                     
-                    <h1 style="font-size: 20px; margin-left:20px; font-weight: bold;">Profile</h1>
+                    <h2 style="font-size: 17px; margin-left:25px; font-weight: bold;">Profile</h2>
                 </span>
                 <span class='row home-menu-lis-item'>
                     <div>
-                        <img src="./images/mas.svg" width="30px"> 
+                        <img src="./images/mas.svg" width="25px"> 
                     </div>
-                    <h1 style="font-size: 20px; margin-left:20px; font-weight: bold;">More</h1>
+                    <h2 style="font-size: 17px; margin-left:25px; font-weight: bold;">More</h2>
+                </span>
+                <span>
+                    <div>
+                    <input type="modal-tweet" name="modal-tweet" class=" btn btn1"  value="Tweet" data-disable-with="Tweet"
+                    style="width: auto; font-size:15px; width:200px;height:45px;">
+                    </div>
                 </span>
             </div>
 
-            <div class="btn-group dropup">
+            <div class="btn-group dropup" style="margin-top:50%;">
                  <span class='row home-menu-lis-item' style="padding-right: 10px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                      <div>
                         <img src="./images/default_profile_400x400.png" width="30px" style="border-radius: 25px;"> 
                     </div>
-                    <h1 style="font-size: 15px; margin-left:20px; font-weight: bold;">@usuario
-                        <i class="fas fa-angle-down" style='margin-left:20px;'></i>
+                    <h1 style="font-size: 15px; margin-left:25px; font-weight: bold;"><%= current_user.name%>
+                        <!--<p>@UserName</p>-->
+                        <i class="fas fa-angle-down" style='margin-left:25px;'></i>
                     </h1>                 
                 </span>
                 <div class="dropdown-menu color-der home-toggel">
@@ -76,7 +83,7 @@
                     <div>
                         <img src="./images/default_profile_400x400.png" width="30px" style="border-radius: 25px;">  
                     </div>
-                    <h1 style="font-size: 20px; margin-left:20px; font-weight: bold;">@usuario</h1>
+                    <h1 style="font-size: 17px; margin-left:25px; font-weight: bold;"><%= current_user.name%></h1>
                 </span>
                 <hr style='background:white; height:0.1px;'>
                 <%= link_to 'Log out', destroy_user_session_path, method: :delete%>
