@@ -1,3 +1,8 @@
+# La aplicación se encuentra desplegada en el siguiente link de heroku:
+https://like-twitter-rails-app.herokuapp.com
+
+
+
 # README
 
 This README would normally document whatever steps are necessary to get the
