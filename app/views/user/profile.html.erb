@@ -99,18 +99,27 @@
                         
                     </div>
                     <div class="col-12 row d-flex" >
-                        <div class="col-8 justify-content-start" >
+                        <div class="col-8 justify-content-start" style="bottom:50px;" >
                             <img src="../images/default_profile_400x400.png" class="profile_image2"> 
-                            <p><%= current_user.name%></p>
-                            <div class="row">
-                                <p><%= current_user.following.count %> Following &nbsp;</p>
-                                <p><%= current_user.followers.count %> Followers</p>
+                            <p ><%= current_user.name%></p>
+                            <p style="color:grey;">@UserName</p>
+                            <p>Joined <%= current_user.created_at%></p>
+                            <div class="row col-12">
+                                    <p><%= current_user.following.count %> <p style="color:grey;"> Following &nbsp;</p></p>
+                                    <p><%= current_user.followers.count %> <p style="color:grey;">Followers</p></p>                             
                             </div>
                             
                         </div>
 
                         <div class="col-4 justify-content-end">
-                            <a class=" btnsmall btn2" style="width=50px">Set up profile</a>
+                            <%if(current_user!=@user)%>
+                                <div class="row col-12">
+                                    <a class=" btnsmall btn2" style="width=50px">...</a>
+                                    <a class=" btnsmall btn2" style="width=50px">Follow</a>
+                                </div>
+                            <%else%>
+                                <a class=" btnsmall btn2" style="width=50px">Set up profile</a>
+                            <%end%>
                         </div>
                     </div>
                 </div>
