@@ -52,7 +52,7 @@
                         <img src="./images/usuario.svg" width="25px"> 
                     </div>
                     
-                    <a style="font-size: 17px; margin-left:25px; font-weight: bold;" href="/profile">Profile</a>
+                    <h2 style="font-size: 17px; margin-left:25px; font-weight: bold;">Profile</h2>
                 </span>
                 <span class='row home-menu-lis-item'>
                     <div>
@@ -91,9 +91,30 @@
             </div>
         </div>
         <div class=" col-6 home-col-border home-col" style="padding:0">
-            <%= render :template =>'tweets/_form.html.erb', tweet: @tweet %>
-            
-            <%= render :template =>'tweets/index.html.erb', tweet: @tweets %>
+            <div class="card color-der" style="padding-bottom:15px;padding-top:15px;  border-radius:0" ><!--style="color:white; background-color: rgb(5, 21, 46);"-->
+                <div class="card-body" style="padding:0">
+                    <h5 class="card-title home-padding-col" style="font-weight: bold;"><%= current_user.name%></h5>
+                        
+                    <div style="height:200px;background:grey;">
+                        
+                    </div>
+                    <div class="col-12 row d-flex" >
+                        <div class="col-8 justify-content-start" >
+                            <img src="../images/default_profile_400x400.png" class="profile_image2"> 
+                            <p><%= current_user.name%></p>
+                            <div class="row">
+                                <p><%= current_user.following.count %> Following &nbsp;</p>
+                                <p><%= current_user.followers.count %> Followers</p>
+                            </div>
+                            
+                        </div>
+
+                        <div class="col-4 justify-content-end">
+                            <a class=" btnsmall btn2" style="width=50px">Set up profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="col-3 home-col">
            <input placeholder="Search Twitter" class="home-barra-busqueda">

@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+
     def index
         if user_signed_in?
             userIsloging()
@@ -22,6 +23,10 @@ class ApplicationController < ActionController::Base
             redirect_to '/'
         end
     end
+
+    def profile
+        render '/user/profile'
+    end
     
     before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -36,4 +41,6 @@ class ApplicationController < ActionController::Base
             @tweets = Tweet.where user_id: current_user.id
             render '/home'
     end
+
+
 end

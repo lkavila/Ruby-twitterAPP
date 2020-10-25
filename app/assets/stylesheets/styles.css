@@ -99,6 +99,18 @@ i {
   font-weight: bold;
   cursor: pointer;
 }
+
+.btnsmall {
+  display: inline-block;
+  text-decoration: none !important;
+  border-radius: 20px;
+  padding: 5px;
+  font-size: 13px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .btn1:hover {
   background-color: rgb(3, 112, 207);
 }
