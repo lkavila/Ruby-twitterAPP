@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   get 'home', to:'application#home'
   get 'index', to: 'application#index'
   get 'profile', to: 'application#profile'
+  resources :relationships,       only: [:create, :destroy]
 
 end

@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-
+   # before_action :set_user, only: [:profile]
     def index
         if user_signed_in?
             userIsloging()
@@ -25,6 +25,7 @@ class ApplicationController < ActionController::Base
     end
 
     def profile
+        @user = User.find(params[:user])
         render '/user/profile'
     end
     
@@ -42,6 +43,10 @@ class ApplicationController < ActionController::Base
             @users = User.all
             render '/home'
     end
-
+    private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_user
+      @user = User.find(params[:id])
+    end
 
 end
