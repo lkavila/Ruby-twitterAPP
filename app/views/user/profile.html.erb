@@ -1,95 +1,9 @@
 <div class="container-fluid"> 
     <div class="row color-der">
         <div class="col-3 home-col home-menu-lis" style="margin-Top:10px;">
-            <div >
-                <span class='row ' style=' padding-left: 5%;'>
-                    <img src="./images/gorjeo.svg" width="30px"  style="margin-bottom:20px"> 
-                </span>
-                <span class='row home-menu-lis-item'>
-                    <div>
-                        <img src="./images/casa.svg" width="25px"  > 
-                    </div>
-                    
-                    <h2 style="font-size: 17px; margin-left:25px; font-weight: bold;">Home</h2>
-                </span>
-                <span class='row home-menu-lis-item'>
-                    <div>
-                        <img src="./images/etiqueta.svg" width="25px"> 
-                    </div>
-                    
-                    <h2 style="font-size: 17px; margin-left:25px; font-weight: bold;">Explore</h2>
-                </span>
-                <span class='row home-menu-lis-item'>
-                    <div>
-                        <img src="./images/campana.svg" width="25px"> 
-                    </div>
-                    
-                    <h2 style="font-size: 17px; margin-left:25px; font-weight: bold;">Notifications</h2>
-                </span>
-                <span class='row home-menu-lis-item'>
-                    <div>
-                        <img src="./images/email.svg" width="25px" > 
-                    </div>
-                    
-                    <h2 style="font-size: 17px; margin-left:25px; font-weight: bold;">Messages</h2>
-                </span>
-                <span class='row home-menu-lis-item'>
-                    <div>
-                        <img src="./images/marcador.svg" width="25px"> 
-                    </div>
-                    
-                    <h2 style="font-size: 17px; margin-left:25px; font-weight: bold;">Bookmarks</h2>
-                </span>
-                <span class='row home-menu-lis-item'>
-                    <div>
-                        <img src="./images/lista.svg" width="25px"> 
-                    </div>
-                    
-                    <h2 style="font-size: 17px; margin-left:25px; font-weight: bold;">List</h2>
-                </span>
-                <span class='row home-menu-lis-item'>
-                    <div>
-                        <img src="./images/usuario.svg" width="25px"> 
-                    </div>
-                    
-                    <h2 style="font-size: 17px; margin-left:25px; font-weight: bold;">Profile</h2>
-                </span>
-                <span class='row home-menu-lis-item'>
-                    <div>
-                        <img src="./images/mas.svg" width="25px"> 
-                    </div>
-                    <h2 style="font-size: 17px; margin-left:25px; font-weight: bold;">More</h2>
-                </span>
-                <span>
-                    <div>
-                    <input type="modal-tweet" name="modal-tweet" class=" btn btn1"  value="Tweet" data-disable-with="Tweet"
-                    style="width: auto; font-size:15px; width:200px;height:45px;">
-                    </div>
-                </span>
-            </div>
 
-            <div class="btn-group dropup" style="margin-top:50%;">
-                 <span class='row home-menu-lis-item' style="padding-right: 10px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     <div>
-                        <img src="./images/default_profile_400x400.png" width="30px" style="border-radius: 25px;"> 
-                    </div>
-                    <h1 style="font-size: 15px; margin-left:25px; font-weight: bold;"><%= current_user.name%>
-                        <!--<p>@UserName</p>-->
-                        <i class="fas fa-angle-down" style='margin-left:25px;'></i>
-                    </h1>                 
-                </span>
-                <div class="dropdown-menu color-der home-toggel">
-                <span class='row '>
-                    <div>
-                        <img src="./images/default_profile_400x400.png" width="30px" style="border-radius: 25px;">  
-                    </div>
-                    <h1 style="font-size: 17px; margin-left:25px; font-weight: bold;"><%= current_user.name%></h1>
-                </span>
-                <hr style='background:white; height:0.1px;'>
-                <%= link_to 'Log out', destroy_user_session_path, method: :delete%>
-                </div>
-            </div>
-        </div>
+            <%= render :template =>'layouts/options.html.erb'%>
+
         <div class=" col-6 home-col-border home-col" style="padding:0">
             <div class="card color-der" style="padding-bottom:15px;padding-top:15px;  border-radius:0" ><!--style="color:white; background-color: rgb(5, 21, 46);"-->
                 <div class="card-body" style="padding:0">
@@ -105,9 +19,10 @@
                             <p style="color:grey;">@UserName</p>
                             <p>Joined <%= @user.created_at%></p>
                             <div class="row col-12">
-                                    <p><%= @user.following.count %> <p style="color:grey;"> Following &nbsp;</p></p>
-                                    <p><%= @user.followers.count %> <p style="color:grey;">Followers</p></p>    
-                                    <p><%=  @user.id %> <p style="color:grey;">ID</p></p>                           
+                                    <a><%= @user.following.count %> <p style="color:grey;">
+                                    <%= link_to 'Following', profile_following_path(user: @user) %>&nbsp;</p></a>
+                                    <p><%= @user.followers.count %> <p style="color:grey;">
+                                    <%= link_to 'Following', profile_followers_path(user: @user) %></p></p>       
                             </div>
                             
                         </div>
@@ -119,13 +34,13 @@
                                     <%= form_for(current_user.active_relationships.find_by(followed_id: @user.id),
                                                 html: { method: :delete },
                                                 remote: true) do |f| %>
-                                        <%= f.submit "Unfollow", class: "btn" %>
+                                        <input type="submit" name="commit" class="btn btn2" style="width:50%" value="Unfollow">
                                         <% end %>
                                 <% else %>
                                     <form  id="follow_form" target="_self" name="follow_form" action="/relationships" accept-charset="UTF-8" method="post">
                                             <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
                                             <div><%= hidden_field_tag :followed_id, @user.id %></div>
-                                            <input type="submit" name="commit" class="btn btn2" value="Follow">
+                                            <input type="submit" name="commit" class="btn btn2" style="width:50%" value="Follow">
                                     </form> 
                                 <% end %>
                                 </div>

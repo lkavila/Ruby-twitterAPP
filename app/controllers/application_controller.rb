@@ -39,7 +39,11 @@ class ApplicationController < ActionController::Base
 
     def userIsloging
             @tweet = Tweet.new
-            @tweets = Tweet.where user_id: current_user.id
+            @tweets = current_user.tweets
+            followingUsers = User.find(current_user.id).following
+            followingUsers.each do |user|
+                @tweets << user.tweets
+            end
             @users = User.all
             render '/home'
     end

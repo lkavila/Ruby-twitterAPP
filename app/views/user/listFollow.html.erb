@@ -1,0 +1,31 @@
+
+<div class="container-fluid"> 
+    <div class="row color-der">
+        <div class="col-3 home-col home-menu-lis" style="margin-Top:10px;">
+            <%= render :template =>'layouts/options.html.erb'%>
+            
+        <div class=" col-6 home-col-border home-col" style="padding:0">
+            <% @FollowUsers.each do |user| %>
+            <div class="card" style="color:white; background-color:#15202b;border-radius:0; border-bottom:1px solid grey">
+            <div class="card-body card-link"><%= link_to 'profile', profile_path(user: user) %>
+            <div class="row">
+                <div style="width:25%;">
+                <img src="../images/default_profile_400x400.png" class="profile_image"> 
+                </div>
+                <div style="width:75%;">
+                    <div class="row" >
+                    <p style="font-weight: bold;margin-left:15px"><%= user.name %></p>
+                    <p class="username">@UserName</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+            <% end %>
+        </div>
+        <div class="col-3 home-col">
+           <input placeholder="Search Twitter" class="home-barra-busqueda">
+        </div>
+    </div>
+<div>
+<script src="https://kit.fontawesome.com/c796510b88.js" crossorigin="anonymous"></script>
