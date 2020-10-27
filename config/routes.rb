@@ -7,5 +7,9 @@ Rails.application.routes.draw do
   get 'login', to: 'application#login'
   get 'home', to:'application#home'
   get 'index', to: 'application#index'
+  get 'profile', to: 'application#profile'
+  resources :relationships,       only: [:create, :destroy]
+  get 'profile/following', to: 'relationships#listFollowing'
+  get 'profile/followers', to: 'relationships#listFollowers'
 
 end

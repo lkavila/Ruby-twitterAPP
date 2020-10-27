@@ -66,7 +66,7 @@ class TweetsController < ApplicationController
     def set_tweet
       @tweet = Tweet.find(params[:id])
     end
-
+    
     # Only allow a list of trusted parameters through.
     def tweet_params
       params.require(:tweet).permit(:text)
