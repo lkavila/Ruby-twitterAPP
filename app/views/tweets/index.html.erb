@@ -10,7 +10,8 @@
           <p style="font-weight: bold;margin-left:15px"><%= tweet.user_id %></p>
           <p class="username">@UserName</p>
           <p class="username">.</p>
-          <p class="username">Time</p>
+          <%date = tweet.created_at%>
+          <p class="username"><%= FormatDate(date) %></p>
         </div>
         <p><%= tweet.text %></p>
         <div class="row">
