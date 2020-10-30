@@ -1,0 +1,60 @@
+<div class="container-fluid"> 
+    <div class="row color-der">
+        <div class="col-3 home-col home-menu-lis" style="margin-Top:10px;">
+
+            <%= render :template =>'layouts/options.html.erb'%>
+
+        <div class=" col-6 home-col-border home-col" style="padding:0">
+            <div class="card color-der" style="padding-bottom:15px;padding-top:15px;  border-radius:0" ><!--style="color:white; background-color: rgb(5, 21, 46);"-->
+                <div class="card-body" style="padding:0">
+                    <h5 class="card-title home-padding-col" style="font-weight: bold;"><%= @user.name%></h5>
+                        
+                    <div style="height:200px;background:grey;">
+                        
+                    </div>
+                    <div class="col-12 row d-flex" >
+                        <div class="col-8 justify-content-start" style="bottom:50px;" >
+                            <img src="../images/default_profile_400x400.png" class="profile_image2"> 
+                            <p ><%= @user.name%></p>
+                            <p style="color:grey;">@UserName</p>
+                            <p>Joined <%= @user.created_at%></p>
+                            <div class="row col-12">
+                                    <a><%= @user.following.count %> <p style="color:grey;">
+                                    <%= link_to 'Following', profile_following_path(user: @user) %>&nbsp;</p></a>
+                                    <p><%= @user.followers.count %> <p style="color:grey;">
+                                    <%= link_to 'Following', profile_followers_path(user: @user) %></p></p>       
+                            </div>
+                            
+                        </div>
+
+                        <div class="col-4 justify-content-end">
+                            <% if (current_user!=@user) %>
+                                <div id="follow_form">
+                                <% if current_user.following?(@user) %>
+                                    <%= form_for(current_user.active_relationships.find_by(followed_id: @user.id),
+                                                html: { method: :delete },
+                                                remote: true) do |f| %>
+                                        <input type="submit" name="commit" class="btn btn2" style="width:50%" value="Unfollow">
+                                        <% end %>
+                                <% else %>
+                                    <form  id="follow_form" target="_self" name="follow_form" action="/relationships" accept-charset="UTF-8" method="post">
+                                            <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+                                            <div><%= hidden_field_tag :followed_id, @user.id %></div>
+                                            <input type="submit" name="commit" class="btn btn2" style="width:50%" value="Follow">
+                                    </form> 
+                                <% end %>
+                                </div>
+                            <%else%>
+                                <a class=" btnsmall btn2" style="width=50px">Set up profile</a>
+                            <%end%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 home-col">
+           <input placeholder="Search Twitter" class="home-barra-busqueda">
+        </div>
+    </div>
+<div>
+<script src="https://kit.fontawesome.com/c796510b88.js" crossorigin="anonymous"></script>
