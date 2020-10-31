@@ -30,6 +30,11 @@ i {
   align-items: center;
 }
 
+.options{
+  font-size: 30px;
+  margin-left:25px;
+  font-weight: bold;
+}
 .responsive-dejar {
   display: none;
 }

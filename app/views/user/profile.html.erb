@@ -17,7 +17,7 @@
                             <img src="../images/default_profile_400x400.png" class="profile_image2"> 
                             <p ><%= @user.name%></p>
                             <p style="color:grey;">@UserName</p>
-                            <p>Joined <%= @user.created_at%></p>
+                            <p>Joined <%= JoinedDate(@user.created_at)%></p>
                             <div class="row col-12">
                                     <a><%= @user.following.count %> <p style="color:grey;">
                                     <%= link_to 'Following ', profile_following_path(user: @user) %>&nbsp;</p></a>

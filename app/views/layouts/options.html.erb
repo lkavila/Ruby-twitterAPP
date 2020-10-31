@@ -50,7 +50,9 @@
                         <img src="./images/usuario.svg" width="25px"> 
                     </div>
                     
-                    <%= link_to 'profile', profile_path(user: current_user) %>
+                    <%= link_to 'profile', profile_path(user: current_user), 
+                    {:style=>'font-size: 17px; margin-left:25px; font-weight: bold;color:#FFFFFF;', :class => "css_class"} %>
+                    
                 </span>
                 <span class='row home-menu-lis-item'>
                     <div>
