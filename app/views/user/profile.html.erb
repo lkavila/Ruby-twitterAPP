@@ -20,9 +20,9 @@
                             <p>Joined <%= @user.created_at%></p>
                             <div class="row col-12">
                                     <a><%= @user.following.count %> <p style="color:grey;">
-                                    <%= link_to 'Following', profile_following_path(user: @user) %>&nbsp;</p></a>
+                                    <%= link_to 'Following ', profile_following_path(user: @user) %>&nbsp;</p></a>
                                     <p><%= @user.followers.count %> <p style="color:grey;">
-                                    <%= link_to 'Following', profile_followers_path(user: @user) %></p></p>       
+                                    <%= link_to 'Followers ', profile_followers_path(user: @user) %></p></p>       
                             </div>
                             
                         </div>

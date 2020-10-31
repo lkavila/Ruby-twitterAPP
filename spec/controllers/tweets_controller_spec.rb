@@ -15,6 +15,14 @@ RSpec.describe TweetsController, "#create" do
         it "should create a new tweet" do
             expect(Tweet.last.text).to eq("This is a tweet by test")
         end
+
+        before do
+            post :create, params: {tweet: {text: "This is a tweet by test2",user_id: user.id}}
+            Tweet.last.delete
+        end
+        it "should delete a tweet" do
+            expect(Tweet.last.text).to eq("This is a tweet by test")
+        end
         it "should redirect to Home" do
             expect(subject).to redirect_to home_path
         end
