@@ -41,7 +41,7 @@ class ApplicationController < ActionController::Base
     def userIsloging
             @tweet = Tweet.new
             @tweets = current_user.tweets
-            followingUsers = User.find(current_user.id).following
+            followingUsers = current_user.following
             followingUsers.each do |user|
                 @tweets << user.tweets
             end

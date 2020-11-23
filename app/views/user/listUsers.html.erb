@@ -1,6 +1,7 @@
-<% @users.each do |user| %>
+<%@users.each do |user| %>
+<a href="/profile?user=<%=user.id%>">
 <div class="card" style="color:white; background-color:#15202b;border-radius:0; border-bottom:1px solid grey">
-  <div class="card-body card-link"><%= link_to 'profile', profile_path(user: user) %>
+  <div class="card-body card-link">
   <div class="row">
     <div style="width:25%;">
       <img src="../images/default_profile_400x400.png" class="profile_image"> 
@@ -14,4 +15,5 @@
   </div>
   </div>
 </div>
+</a>
 <% end %>
