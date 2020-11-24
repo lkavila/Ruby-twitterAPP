@@ -21,10 +21,19 @@
     <div style="width:90%;">
       <textarea class="mytextarea color-der" placeholder="What's happening?" style="font-size:17px;"
         name="tweet[text]" id="tweet_text" maxlength="280"></textarea>
+      <div>
+        <img id="imagenPrevisualizacion"  style="width:90%; margin-bottom:5px;">
+      </div>
         <div class="row">
-          <div class=" col-7 d-flex justify-content-start">
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
+          <div class=" col-7 d-flex justify-content-start ">
+            <div class="input-group" style="width:20px;" >
+              <div class="custom-file"  style="width:20px;">
+                <%=form.file_field :image , class:"custom-file-input", style: 'width:20px;' %>
+                <span  class="file-upload " style='position:absolute;' >
+                  <img src="./images/imagenes.svg" width="20px">
+                </span>
+              </div>
+            </div>
           </div>
           <div class=" col-5 d-flex justify-content-end">
               <input id="lengthCounter" readonly style="border: 1px solid #1da1f2;border-radius:25px;  width:35px;height:35px;  text-align: center">
@@ -40,24 +49,43 @@
 <% end %>
 <hr style="background:grey;height:0px; margin:0; border-top: 10px solid #253341; border-bottom: 10px solid #253341;">
 <script>
-document.getElementById('btn-tweet').disabled = true;
-var input=  document.getElementById('tweet_text');
-input.addEventListener('input',function(){
-  var counter = document.getElementById('lengthCounter');
-  if(this.value.length>0){
-    document.getElementById('btn-tweet').disabled = false;
-    counter.value=280-this.value.length;
-  }else{
-    counter.value="";
-    document.getElementById('btn-tweet').disabled = true;
-  }
-    if(280-this.value.length==0){
-    counter.style.border="1px solid red"
-  }else if(280-this.value.length <= 20){
-    counter.style.border="1px solid orange"
-  }  else{
-    counter.style.border="1px solid #1da1f2"
-  }
+  document.getElementById('btn-tweet').disabled = true;
+  var input=  document.getElementById('tweet_text');
+  input.addEventListener('input',function(){
+    var counter = document.getElementById('lengthCounter');
+    if(this.value.length>0){
+      document.getElementById('btn-tweet').disabled = false;
+      counter.value=280-this.value.length;
+    }else{
+      counter.value="";
+      document.getElementById('btn-tweet').disabled = true;
+    }
+      if(280-this.value.length==0){
+      counter.style.border="1px solid red"
+    }else if(280-this.value.length <= 20){
+      counter.style.border="1px solid orange"
+    }  else{
+      counter.style.border="1px solid #1da1f2"
+    }
+  })
+</script>
 
-})
+<script>
+  $('.file-upload').on('click', function(e) {
+    e.preventDefault();
+    $('#file-input').trigger('click');
+  });
+  const $seleccionArchivos = document.querySelector("#tweet_image"),
+    $imagenPrevisualizacion = document.querySelector("#imagenPrevisualizacion");
+
+  $seleccionArchivos.addEventListener("change", () => {
+    const archivos = $seleccionArchivos.files;
+    if (!archivos || !archivos.length) {
+      $imagenPrevisualizacion.src = "";
+      return;
+    }
+    const primerArchivo = archivos[0];
+    const objectURL = URL.createObjectURL(primerArchivo);
+    $imagenPrevisualizacion.src = objectURL;
+  });
 </script>
