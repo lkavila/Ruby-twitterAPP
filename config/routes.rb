@@ -11,5 +11,7 @@ Rails.application.routes.draw do
   resources :relationships,       only: [:create, :destroy]
   get 'profile/following', to: 'relationships#listFollowing'
   get 'profile/followers', to: 'relationships#listFollowers'
+  put '/tweet/:id/like', to: 'tweets#like', as: 'like'
+  put '/tweet/:id/dislike', to: 'tweets#dislike', as: 'dislike'
 
 end

@@ -61,6 +61,17 @@ class TweetsController < ApplicationController
     end
   end
 
+  def like 
+    @tweet = Tweet.all.find(params[:id])
+    Like.create(user_id: current_user.id, tweet_id: @tweet.id)
+    redirect_to '/home'
+  end
+
+  def dislike
+    Like.destroy_by(user_id: current_user.id, tweet_id: params[:id])
+    redirect_to '/home'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tweet

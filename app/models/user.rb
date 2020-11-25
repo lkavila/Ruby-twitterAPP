@@ -3,10 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
-         after_create :welcome_send
-         def welcome_send
-          WelcomeMailer.welcome_send(self).deliver
-         end
+
   has_many :tweets
   has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",

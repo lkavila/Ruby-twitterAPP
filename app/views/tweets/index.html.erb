@@ -16,9 +16,18 @@
         <p><%= tweet.text %></p>
         <%= image_tag  tweet.image.variant(resize_to_limit: [530,700]) if tweet.image.attached? %>
         <div class="row">
-          <div class=" col-11 d-flex justify-content-around">
+          <div class=" col-11 d-flex justify-content-around" style="margin-top:10px">
               <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
+              <div>
+                  <%if tweet.liked?(current_user)%>
+                    <img src="./images/me-gusta (3).svg" width="20px">
+                    <%= link_to tweet.likes.find_all.count, dislike_path(tweet.id), method: "put"%>
+                  <% else %>
+                      <img src="./images/me-gusta (1).svg" width="20px">
+                      <%= link_to tweet.likes.find_all.count, like_path(tweet.id), method: "put"%>
+                  <%end%>
+              </div>
+              
               <div class="card-link"><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></div>
           </div>
 
