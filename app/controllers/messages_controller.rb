@@ -15,15 +15,15 @@ class MessagesController < ApplicationController
         @myUsers = []
         followUsers.each do |user|
             user.following.each do |user2|
-              if current_user=user2
+              if current_user==user2
                   @myUsers.push(user)
               end
             end
         end
         if(params[:id2])
             @selectedUser = User.find(params[:id2])
-            @ourMessages = Message.where(user_id: @selectedUser.id, emisor_id: current_user.id)
-            @ourMessages.order('created_at desc')
+            @ourMessages = Message.find_by_sql "select * from messages where (user_id ="+@selectedUser.id.to_s+" AND emisor_id="+current_user.id.to_s+") or (user_id ="+current_user.id.to_s+" AND emisor_id="+@selectedUser.id.to_s+")"
+            @ourMessages = @ourMessages.sort_by &:created_at
         end
         render '/user/Messages'
     end
