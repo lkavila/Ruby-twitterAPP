@@ -16,4 +16,12 @@ module TweetsHelper
         return formatDate
     end
 
+    def getUserName(tweet)
+        users = User.all
+        users.each do |user|
+            if(user.tweets.find(tweet.id))
+                return user
+            end
+        end
+    end
 end

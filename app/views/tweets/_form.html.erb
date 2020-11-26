@@ -35,6 +35,8 @@
               </div>
             </div>
           </div>
+          <input type="hidden" name="tweet[user_name]" id="tweet_user_name" value="<%=current_user.name%>">
+          <input type="hidden" name="tweet[user_id]" id="tweet_user_id" value="<%=current_user.id%>">
           <div class=" col-5 d-flex justify-content-end">
               <input id="lengthCounter" readonly style="border: 1px solid #1da1f2;border-radius:25px;  width:35px;height:35px;  text-align: center">
               <hr style="background:grey;margin:0; width:1px;height:30px;margin-left:5px;margin-right:5px;">

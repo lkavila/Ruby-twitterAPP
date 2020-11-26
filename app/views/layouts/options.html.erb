@@ -1,10 +1,10 @@
         <div style="position: fixed">
                 <span class='row ' style=' padding-left: 5%;'>
-                    <img src="./images/gorjeo.svg" width="30px"  style="margin-bottom:20px"> 
+                    <img src="../../images/gorjeo.svg" width="30px"  style="margin-bottom:20px"> 
                 </span>
                 <span class='row home-menu-lis-item'>
                     <div>
-                        <img src="./images/casa.svg" width="25px"  > 
+                        <img src="../../images/casa.svg" width="25px"  > 
                     </div>
                     
                     <a style="font-size: 17px; margin-left:25px; font-weight: bold;" href="/">Home</a>
@@ -12,51 +12,52 @@
                 </span>
                 <span class='row home-menu-lis-item'>
                     <div>
-                        <img src="./images/etiqueta.svg" width="25px"> 
+                        <img src="../../images/etiqueta.svg" width="25px"> 
                     </div>
                     
                     <h2 style="font-size: 17px; margin-left:25px; font-weight: bold;">Explore</h2>
                 </span>
                 <span class='row home-menu-lis-item'>
                     <div>
-                        <img src="./images/campana.svg" width="25px"> 
+                        <img src="../../images/campana.svg" width="25px"> 
                     </div>
                     
                     <h2 style="font-size: 17px; margin-left:25px; font-weight: bold;">Notifications</h2>
                 </span>
                 <span class='row home-menu-lis-item'>
                     <div>
-                        <img src="./images/email.svg" width="25px" > 
+                        <img src="../../images/email.svg" width="25px" > 
                     </div>
                     
-                    <h2 style="font-size: 17px; margin-left:25px; font-weight: bold;">Messages</h2>
+                    <%= link_to 'Messages', getMessages_path(id1: current_user.id, id2: nil), 
+                    {:style=>'font-size: 17px; margin-left:25px; font-weight: bold;color:#FFFFFF;', :class => "css_class"} %>
                 </span>
                 <span class='row home-menu-lis-item'>
                     <div>
-                        <img src="./images/marcador.svg" width="25px"> 
+                        <img src="../../images/marcador.svg" width="25px"> 
                     </div>
                     
                     <h2 style="font-size: 17px; margin-left:25px; font-weight: bold;">Bookmarks</h2>
                 </span>
                 <span class='row home-menu-lis-item'>
                     <div>
-                        <img src="./images/lista.svg" width="25px"> 
+                        <img src="../../images/lista.svg" width="25px"> 
                     </div>
                     
                     <h2 style="font-size: 17px; margin-left:25px; font-weight: bold;">List</h2>
                 </span>
                 <span class='row home-menu-lis-item'>
                     <div>
-                        <img src="./images/usuario.svg" width="25px"> 
+                        <img src="../../images/usuario.svg" width="25px"> 
                     </div>
                     
-                    <%= link_to 'profile', profile_path(user: current_user), 
+                    <%= link_to 'Profile', profile_path(user: current_user), 
                     {:style=>'font-size: 17px; margin-left:25px; font-weight: bold;color:#FFFFFF;', :class => "css_class"} %>
                     
                 </span>
                 <span class='row home-menu-lis-item'>
                     <div>
-                        <img src="./images/mas.svg" width="25px"> 
+                        <img src="../../images/mas.svg" width="25px"> 
                     </div>
                     <h2 style="font-size: 17px; margin-left:25px; font-weight: bold;">More</h2>
                 </span>
@@ -70,7 +71,7 @@
                 <div class="btn-group dropup" style="margin-top:45%;">
                  <span class='row home-menu-lis-item' style="padding-right: 10px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                      <div>
-                        <img src="./images/default_profile_400x400.png" width="30px" style="border-radius: 25px;"> 
+                        <img src="../../images/default_profile_400x400.png" width="30px" style="border-radius: 25px;"> 
                     </div>
                     <h1 style="font-size: 15px; margin-left:25px; font-weight: bold;"><%= current_user.name%>
                         <!--<p>@UserName</p>-->
@@ -80,7 +81,7 @@
                 <div class="dropdown-menu color-der home-toggel">
                 <span class='row '>
                     <div>
-                        <img src="./images/default_profile_400x400.png" width="30px" style="border-radius: 25px;">  
+                        <img src="../../images/default_profile_400x400.png" width="30px" style="border-radius: 25px;">  
                     </div>
                     <h1 style="font-size: 17px; margin-left:25px; font-weight: bold;"><%= current_user.name%></h1>
                 </span>

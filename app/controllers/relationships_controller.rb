@@ -22,4 +22,6 @@ class RelationshipsController < ApplicationController
       @FollowUsers = User.find(params[:user]).followers
       render '/user/listFollow'
     end
+
+
 end

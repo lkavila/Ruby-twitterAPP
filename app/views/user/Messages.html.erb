@@ -1,0 +1,85 @@
+<div class="container-fluid"> 
+    <div class="row color-der">
+        <div class="col-3 home-col home-menu-lis" style="margin-Top:10px;">
+            <%= render :template =>'layouts/options.html.erb'%>
+            
+        <div class=" col-3 home-col-border home-col" style="padding:0;">
+            <input placeholder="Search friends or groups" class="home-barra-busqueda">
+
+            <% @myUsers.each do |user| %>
+            <a href="/messages/<%=current_user.id%>/<%=user.id%>">
+            <div class="card" style="color:white; background-color:#15202b;border-radius:0; border-bottom:1px solid grey">
+            <div class="card-body card-link">
+            <div class="row">
+                <div style="width:22%;">
+                <img src="../../images/default_profile_400x400.png" class="profile_image"> 
+                </div>
+                <div style="width:78%;">
+                    <div class="row" >
+                    <p style="font-weight: bold;"><%= user.name %></p>
+                    <p class="username">@UserName</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+            </a>
+            <% end %>
+        </div>
+        <div class="col-6 home-col">
+            <%if(@selectedUser!=nil) %>
+            <div style="margin-top:55px; border-bottom:1px solid grey">
+                <a  style="color:grey;" href="/profile?user=<%=@selectedUser.id%>">
+                    <div class="row d-flex justify-content-center">
+                        <p style="color:white;font-weight: bold;"><%= @selectedUser.name%></p>&nbsp;&nbsp;
+                        <p style="color:grey;">@UserName</p>
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                        <p style="color:white;font-weight: bold;"><%= @selectedUser.following.count %></p>&nbsp;&nbsp;
+                        <p>Following</p>&nbsp;&nbsp;
+                        <p style="color:white;font-weight: bold;"><%= @selectedUser.followers.count %></p>&nbsp;&nbsp;
+                        <p>Followers</p>
+                    </div>
+                    <p class="d-flex justify-content-center">Joined <%= JoinedDate(@selectedUser.created_at)%></p>
+
+                </a>
+                </div>
+
+                    <% @ourMessages.each do |message|%>
+                        <% if (message.user_id == current_user.id)%>
+                        
+                            <p  class="d-flex justify-content-start yourMessage"><%=message.text%></p>
+                         <%else%>
+                            <p class="d-flex justify-content-end myMessage"><%=message.text%></p>
+
+                         <%end%>
+
+                    <%end%>
+
+                <div  style="position: fixed;  bottom: 5px; z-index: 999;">
+
+                <form class="new_message" id="new_message" target="_self" name="new_message" action="/message/<%=@selectedUser.id%>" accept-charset="UTF-8" method="post">
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+                    <input type="hidden" name="message[user_name]" id="message_user_name" value="<%=current_user.name%>">
+                    <input type="hidden" name="message[emisor_id]" id="emisor_user_id" value="<%=current_user.id%>">
+                    <input type="hidden" name="message[user_id]" id="message_user_id" value="<%=@selectedUser.id%>">
+                    
+                    <div class="col-12" style="height: 37px;">
+                    <div class="row " >
+                        <textarea  autofocus="autofocus" placeholder="Write a message here" style="font-size:17px;width:500px"
+                        name="message[text]" id="message_text" maxlength="400" required></textarea>
+                            <input type="image" name="commit" class="btnS btn1" src="../../images/enviar.svg" width="25px"
+                            formtarget="_self" value="Send" data-disable-with="Send">
+                        
+                    </div>
+                    </div>
+
+                    
+                </form>
+
+                
+            </div>
+            <%end%>
+    </div>
+<div>
+<script src="https://kit.fontawesome.com/c796510b88.js" crossorigin="anonymous"></script>

@@ -44,6 +44,52 @@
                                     </form> 
                                 <% end %>
                                 </div>
+
+                            <!-- Button trigger modal -->
+                            <button type="button"class=" btnsmall btn2" style="width=50px" data-toggle="modal" data-target="#MessageModal">
+                            Send private message
+                            </button>
+
+                            <!-- Modal -->
+<div class="modal fade" id="MessageModal" tabindex="-1" role="dialog" aria-labelledby="MessageModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="MessageModalLabel" style="color:black">Send a message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="new_message" id="new_message" target="_self" name="new_message" action="/message/<%=@user.id%>" accept-charset="UTF-8" method="post">
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+            
+            <textarea  autofocus="autofocus" placeholder="Write a message here" style="font-size:17px;width:90%;heigth:200px"
+            name="message[text]" id="message_text" maxlength="400"></textarea>
+
+            <input type="hidden" name="message[user_name]" id="message_user_name" value="<%=current_user.name%>">
+            <input type="hidden" name="message[emisor_id]" id="emisor_user_id" value="<%=current_user.id%>">
+            <input type="hidden" name="message[user_id]" id="message_user_id" value="<%=@user.id%>">
+            
+          <br>
+
+            <div class="modal-footer">
+            <div class="justify-content-between" style="width:100%;">
+                  <button type="button" class="btn btn-secondary" style="width:30%;" data-dismiss="modal">Close</button>
+                  <input type="submit" name="commit" class="btn btn1"
+                  formtarget="_self" value="Send" style="width:60%;" data-disable-with="Send">
+            </div>
+            
+  
+            </div>
+            
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
                             <%else%>
                                 <a class=" btnsmall btn2" style="width=50px">Set up profile</a>
                             <%end%>

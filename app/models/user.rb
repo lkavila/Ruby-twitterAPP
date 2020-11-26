@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
+  has_many :messages
+  has_many :sended_messages, class_name: 'Message', foreign_key: :emisor_id
   has_many :tweets
   has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",
