@@ -1,6 +1,8 @@
 module TweetsHelper
     def FormatDate(date)
+
         t = Time.now() 
+        #if t-date < 720.hours # 24*30 = mes = 720 horas
         if t-date < 3600.minute
             formatDate = date.strftime("%kh ") 
             if t-date < 60.minute
