@@ -3,7 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
-
+         handle_asynchronously :send_reset_password_instructions
+         handle_asynchronously :send_confirmation_instructions
+         handle_asynchronously :send_on_create_confirmation_instructions
   has_many :messages
   has_many :sended_messages, class_name: 'Message', foreign_key: :emisor_id
   has_many :tweets
