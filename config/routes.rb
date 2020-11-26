@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :relationships,       only: [:create, :destroy]
   get 'profile/following', to: 'relationships#listFollowing'
   get 'profile/followers', to: 'relationships#listFollowers'
-
+  post '/search', to: 'search#results'
+  get '/search', to: 'search#explore'
 end

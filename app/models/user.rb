@@ -32,4 +32,8 @@ class User < ApplicationRecord
                                    foreign_key: "followed_id",
                                    dependent:   :destroy
   has_many :followers, through: :passive_relationships, source: :follower
+
+  def self.buscador(termino)
+    User.where("name LIKE ?", "%#{termino}%")
+end
 end
