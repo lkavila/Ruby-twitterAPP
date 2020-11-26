@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   put '/tweet/:id/dislike', to: 'tweets#dislike', as: 'dislike'
   post '/message/:id', to: 'messages#create'
   get '/messages/:id1(/:id2)', to: 'messages#show', as: 'getMessages'
+  post '/search', to: 'search#results'
+  get '/search', to: 'search#explore'
 end

@@ -5,5 +5,8 @@ class Tweet < ApplicationRecord
     has_many :likes
     def liked?(user)
         !!self.likes.find{|like| like.user_id == user.id}
+
+    def self.buscador(termino)
+        Tweet.where("text LIKE ?", "%#{termino}%")
     end
 end

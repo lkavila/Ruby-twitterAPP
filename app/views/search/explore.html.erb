@@ -1,12 +1,10 @@
 <div class="container-fluid"> 
     <div class="row color-der">
         <div class="col-3 home-col home-menu-lis" style="margin-Top:10px;">
-            <%= render :template =>'layouts/options.html.erb'%>
-       
+            <%= render :template =>'../layouts/options.html.erb'%>
+        </div>
         <div class=" col-6 home-col-border home-col" style="padding:0">
-            <%= render :template =>'tweets/_form.html.erb', tweet: @tweet %>
-            
-            <%= render :template =>'tweets/index.html.erb', tweet: @tweets %>
+            <%= render :template =>'../tweets/index.html.erb', tweet: @tweets %>
         </div>
         <div class="col-3 home-col">
             <%= form_tag('/search') do%>
@@ -14,7 +12,7 @@
                 <!--<input placeholder="Search Twitter" class="home-barra-busqueda">
                 <%= submit_tag(value = "Buscar") %> -->
             <% end %>
-           <%= render :template =>'user/listUsers.html.erb', user: @users %>
+           <%= render :template =>'../user/listUsers.html.erb', user: @users %>
         </div>
     </div>
 <div>
