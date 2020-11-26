@@ -53,6 +53,7 @@ group :production do
   gem 'letter_opener'
   gem 'rspec-rails', '~> 4.0.1'
   gem 'shoulda-matchers', '~> 4.0'
+  gem 'image_processing', '~> 1.2'
   gem 'factory_bot_rails'
 end
 
