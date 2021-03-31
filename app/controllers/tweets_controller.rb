@@ -23,10 +23,6 @@ class TweetsController < ApplicationController
 
   # POST /tweets
   # POST /tweets.json
-  #def create
-  #  TweetJob.set(wait: 0.seconds).perform_later tweet_params,current_user
-  #  redirect_to '/home', notice: 'Tweet was successfully created.' 
-  #end  
 
   def create
     @tweet = current_user.tweets.new(tweet_params)
